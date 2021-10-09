@@ -22,7 +22,7 @@ function Home(props) {
         <div className="container">
             <div className="row align-items-start">
                 <div className="col-12 col-md m-1">
-                    <RenderCard item={props.dish} />
+                    <RenderCard item={props.donation} />
                 </div>
                 <div className="col-12 col-md m-1">
                     <RenderCard item={props.promotion} />

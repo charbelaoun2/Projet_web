@@ -1,15 +1,15 @@
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 
-function RenderDish(dish) {
+function RenderDonation(donation) {
 
-    if (dish != null) {
+    if (donation != null) {
         return (
             <div className='col-12 col-md-5 m-1'>
                 <Card>
-                    <CardImg width="100%" src={dish.image} alt={dish.name} />
+                    <CardImg width="100%" src={donation.image} alt={donation.name} />
                     <CardBody>
-                        <CardTitle> {dish.name}</CardTitle>
-                        <CardText> {dish.description} </CardText>
+                        <CardTitle> {donation.name}</CardTitle>
+                        <CardText> {donation.description} </CardText>
                     </CardBody>
                 </Card>
             </div>   
@@ -50,26 +50,26 @@ function RenderComments(comments) {
     )
 }
 
-const DishDetail = (props) => {
-    const dish = props.dish
+const DonationDetl = (props) => {
+    const donation = props.donation
 
-    console.log(dish);
+    console.log(donation);
     
-    if (dish == null) {
+    if (donation == null) {
         return (<div></div>);
     }
 
-    const dishItem = RenderDish(dish);
-    const dishComment = RenderComments(dish.comments);
+    const donationItem = RenderDonation(donation);
+    const donationComment = RenderComments(donation.comments);
 
     return (
         <div class = "container">  
             <div className='row'>
-                {dishItem}
-                {dishComment}
+                {donationItem}
+                {donationComment}
             </div>
         </div>
     )
 }
 
-export default DishDetail;
+export default DonationDetl;

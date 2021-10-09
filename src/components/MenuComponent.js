@@ -2,12 +2,12 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay,
     CardTitle } from 'reactstrap';
 
-    function RenderMenuItem ({dish, onClick}) {
+    function RenderMenuItem ({donation, onClick}) {
         return (
             <Card>
-                <CardImg height="320px" src={dish.image} alt={dish.name} />
+                <CardImg height="320px" src={donation.image} alt={donation.name} />
                 <CardImgOverlay>
-                    <CardTitle>{dish.name}</CardTitle>
+                    <CardTitle>{donation.name}</CardTitle>
                 </CardImgOverlay>
             </Card>
         );
@@ -15,10 +15,10 @@ import { Card, CardImg, CardImgOverlay,
 
     const Menu = (props) => {
 
-        const menu = props.dishes.map((dish) => {
+        const menu = props.donations.map((donation) => {
             return (
-                <div className="col-12 col-md-5 m-1"  key={dish.id}>
-                    <RenderMenuItem dish={dish} onClick={props.onClick} />
+                <div className="col-12 col-md-5 m-1"  key={donation.id}>
+                    <RenderMenuItem donation={donation} onClick={props.onClick} />
                 </div>
             );
         });

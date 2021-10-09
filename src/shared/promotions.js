@@ -1,10 +1,10 @@
 export const PROMOTIONS = [
     {
       id: 0,
-      name: 'Donation Vestimentaire ',
-      image: '/assets/images/vesti_don.png',
+      name: 'Dnate ',
+      image: '/assets/images/Donate.png',
       
       featured: true,
-      description: ''
+      description: 'Possibiliter d offrire des donations de differentes categories '
     }
   ];

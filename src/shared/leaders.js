@@ -2,10 +2,10 @@ export const LEADERS = [
     
     {
       id: 0,
-      name: 'Donation educative ',
-      image: '/assets/images/educative_don.png',
+      name: 'Marc nseir & charbel Aoun ',
+      image: '/assets/images/Leader.png',
       
       featured: true,
-      description: ''
+      description: 'Charbel Aoun & Marc Nsier the leader of the online organisation '
     }
   ];
