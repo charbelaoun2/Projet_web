@@ -1,7 +1,7 @@
 export const PROMOTIONS = [
     {
       id: 0,
-      name: 'Dnate ',
+      name: 'Donate ',
       image: '/assets/images/Donate.png',
       
       featured: true,

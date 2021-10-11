@@ -17,7 +17,6 @@ class Main extends Component {
     super(props);
     this.state = {
       donations: DONATIONS,
-      
       promotions: PROMOTIONS,
       leaders: LEADERS
     };

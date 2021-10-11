@@ -11,10 +11,27 @@
 }
 
 .footer {
-  background-color: #d1c4e9;
+  background: rgb(212, 211, 211) !important;
   margin: 0px auto;
   padding: 20px 0px 20px 0px;
 }
+/* ---------------------------------------------------
+#### NAVBAR
+-------------------------------------------------- */
+.navbar {
+  background-color: white;
+  position: flex;
+}
+
+.nav-link{
+  color: #0f0f0f !important;
+  transition: 0.5s;
+}
+
+.nav-link:hover{
+  color: red !important;
+}
+
 
 /* ---------------------------------------------------
 #### jumbotron
@@ -55,6 +72,15 @@ address {
   color: #0f0f0f;
 }
 
-.navbar-dark {
-  background-color: black;
+
+/* ---------------------------------------------------
+#### footer
+-------------------------------------------------- */
+.footer-info{
+  color: black !important;
+  transition: 0.5s;
+}
+
+.footer-info:hover{
+  color: red !important;
 }
