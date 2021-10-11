@@ -6,16 +6,16 @@ function Footer(props) {
     <div className="footer">
         <div className="container">
             <div className="row justify-content-center">             
-                <div className="col-4 offset-1 col-sm-2">
+                <div className="col-4">
                     <h5>Links</h5>
-                    <ul className="list-unstyled">
-                    <li><Link to='/home'>Home</Link></li>
-                    <li><Link to='/aboutus'>About Us</Link></li>
-                    <li><Link to='/menu'>Menu</Link></li>
-                    <li><Link to='/contactus'>Contact Us</Link></li>
+                    <ul className="list-unstyled ">
+                    <li><Link to='/home'><i className="fa fa-home footer-info"> Home</i></Link></li>
+                    <li><Link to='/aboutus'><i className="fa fa-info footer-info"> About Us</i></Link></li>
+                    <li><Link to='/menu'><i className="fa fa-bars footer-info"> Menu</i></Link></li>
+                    <li><Link to='/contactus'><i className="fa fa-phone footer-info"> Contact Us</i></Link></li>
                     </ul>
                 </div>
-                <div className="col-7 col-sm-5">
+                <div className="col-4">
                     <h5>Our Address</h5>
                     <address>
 		              Beirut Lebanon <br />
@@ -27,7 +27,7 @@ function Footer(props) {
                          operationMC@hotmail.com</a>
                     </address>
                 </div>
-                <div className="col-12 col-sm-4 align-self-center">
+                <div className="col-4 align-self-center">
                     <div className="text-center">
                         <a className="btn btn-social-icon btn-google" href="http://google.com/+"><i className="fa fa-google-plus"></i></a>
                         <a className="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i className="fa fa-facebook"></i></a>
