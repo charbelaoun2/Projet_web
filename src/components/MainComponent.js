@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Menu from './MenuComponent';
 import { DONATIONS } from '../shared/donations';
-
 import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
 import Header from './HeaderComponent';
@@ -18,8 +17,14 @@ class Main extends Component {
     this.state = {
       donations: DONATIONS,
       promotions: PROMOTIONS,
-      leaders: LEADERS
+      leaders: LEADERS,
     };
+  }
+
+  onDonationSelect(donationid){
+    this.setState({
+        selectedDonation : donationid
+    })
   }
 
   render() {
@@ -41,7 +46,7 @@ class Main extends Component {
           <Route path='/home' component={HomePage} />
           <Route exact path='/menu' component={() => <Menu donations={this.state.donations} />} />
           <Route exact path='/contactus' component={Contact} />
-          <Route exact path='/AboutUs' component={AboutUs} />
+          <Route exact path='/AboutUs' component={AboutUs}/>
 
           <Redirect to="/home" />
         </Switch>

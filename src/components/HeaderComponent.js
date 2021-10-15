@@ -22,7 +22,7 @@ class Header extends Component {
     render() {
         return(
             <div>
-                <Navbar expand="md" sticky="top">
+                <Navbar light expand="md" fixed="top">
                     <div className="container ">
                         <NavbarToggler onClick={this.toggleNav} />
                         <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo_nav2.png' height="30" width="41" alt='Ristorante Con Fusion' /></NavbarBrand>
@@ -51,6 +51,7 @@ class Header extends Component {
                                 <img src='/assets/images/mission_header.png' className='responsive_img'></img>
 
                             </div>
+                           
                            
                             <div className="col-3 col-sm-6">
                                 <h1 class ="jumbo_mission">Our mission</h1>
