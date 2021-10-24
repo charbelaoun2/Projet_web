@@ -24,7 +24,7 @@ export const DONATIONS =
         {
         id: 3,
         name:'Donation alimentaire ',
-        image: '/assets/images/alimentaire_Don.png',
+        image: '/assets/images/Donation_alim.png',
         featured: false,
         description:'Donation alimentaires pour les personnes en besoin '
         },
