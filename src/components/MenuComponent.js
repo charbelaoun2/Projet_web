@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay,
     CardTitle } from 'reactstrap';
 
-    function RenderMenuItem ({donation, onClick}) {
+    function RenderMenuItem ({donation}) {
         return (
             <Card>
                 <CardImg height="320px" src={donation.image} alt={donation.name} />
@@ -18,7 +18,7 @@ import { Card, CardImg, CardImgOverlay,
         const menu = props.donations.map((donation) => {
             return (
                 <div className="col-12 col-md-5 m-1"  key={donation.id}>
-                    <RenderMenuItem donation={donation} onClick={props.onClick} />
+                    <RenderMenuItem donation={donation} />
                 </div>
             );
         });

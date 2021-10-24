@@ -72,4 +72,5 @@ const DonationDetl = (props) => {
     )
 }
 
+
 export default DonationDetl;
