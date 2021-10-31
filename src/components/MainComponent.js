@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Menu from './MenuComponent';
+import { DONATIONS } from '../shared/donations';
+import { PROMOTIONS } from '../shared/promotions';
+import { LEADERS } from '../shared/leaders';
 import Header from './HeaderComponent';
 import AboutUs from './AboutUsComponent'
 import Footer from './FooterComponent';
@@ -19,8 +22,14 @@ const mapStateToProps = state => {
 
 class Main extends Component {
 
-  
-  
+  constructor(props) {
+    super(props);
+    this.state = {
+      donations: DONATIONS,
+      promotions: PROMOTIONS,
+      leaders: LEADERS,
+    };
+  }
 
   onDonationSelect(donationid){
     this.setState({
