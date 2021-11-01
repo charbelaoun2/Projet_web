@@ -39,8 +39,8 @@ class AboutUs extends Component{
         return(
             
 
-            <Container>
-            <div className="counter ">
+            <Container className="container-main">
+            <div className="counter">
                 <Container>
                     <div className="container">  
                         <h1 className="about-us-title">ABOUT US</h1>  

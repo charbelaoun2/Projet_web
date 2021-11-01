@@ -1,3 +1,16 @@
+.container-main{
+  padding-top: 70px;
+}
+
+.container-main1{
+  padding-top: 50px;
+}
+
+.menu-main{
+  padding-top: 70px;
+}
+
+
 .row-header {
   margin: 0px auto;
   padding: 0px auto;
@@ -59,10 +72,9 @@
   height: 100%;
 }
 
-.responsive_img {
-  width: 100%;
-  height: 110%;
-  padding-bottom: 10px;
+.img-background{
+  background-size: cover;
+  height: calc(100vh - 80px);
 }
 
 address {
@@ -70,7 +82,67 @@ address {
   margin: 0px;
   color: #0f0f0f;
 }
+/* 
+--------------------------------------------------
+#### HOME
+--------------------------------------------------- */
+.hero {
+	background-color: #000000;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+  url(https://img.pngio.com/volunteer-opportunities-volunteer-png-538_297.png);
+  background-position: center;
+	background-size: cover;
+	color: #ffffff;
+	padding: 1em;
+	text-align: center;
+  height: 520px;
+}
 
+.hero-text{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.hero-text-h1{
+  text-align: center;
+  margin: 90px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.btn-lg-h1{
+  text-align: center;
+  width: 150px;
+  height: 70px;
+  
+}
+
+.card-title-home1{
+  font-weight: bold;
+  font-size: x-large; 
+  border-bottom: 1px solid lightgray;
+}
+
+.card-title-home2 {
+  font-size: smaller;
+  opacity: 0.5;
+  
+}
+
+.card-info {
+  margin-top: 15px;
+}
+
+.card-info-text {
+  font-size: 15px;
+  display: block;
+  margin: 5px;
+  text-decoration: none !important;
+}
+
+.fahome{
+  color: #1E90FF ;
+}
 
 /* ---------------------------------------------------
 #### footer
@@ -94,10 +166,9 @@ address {
   flex-wrap:wrap;
 }
 
-/* .card-body{
-  width: 300px;
-  height: 400px;
-} */
+.card-body{
+  padding: 20px;
+}
 
 .card-img{
   height: auto;
@@ -110,6 +181,7 @@ address {
 #### about us
 -------------------------------------------------- */
 .about-us-title{
+  margin: 10px;
   color: #1E90FF !important;
   font-weight: bold;
   border-left: 5px solid #1E90FF;

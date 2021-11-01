@@ -4,12 +4,14 @@ import { Card, CardImg, CardImgOverlay,
 
     function RenderMenuItem ({donation}) {
         return (
-            <Card>
-                <CardImg height="320px" src={donation.image} alt={donation.name} />
-                <CardImgOverlay>
-                    <CardTitle>{donation.name}</CardTitle>
-                </CardImgOverlay>
-            </Card>
+            <div className="menu-main">
+                <Card>
+                    <CardImg height="320px" src={donation.image} alt={donation.name} />
+                    <CardImgOverlay>
+                        <CardTitle>{donation.name}</CardTitle>
+                    </CardImgOverlay>
+                </Card>
+            </div>
         );
     }
 

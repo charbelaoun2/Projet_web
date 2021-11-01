@@ -48,7 +48,7 @@ class Contact extends Component {
 
         return(
            
-            <Container>
+            <Container className="container-main">
             <div className="row">
         
                 <div className="col-lg-4">

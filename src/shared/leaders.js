@@ -1,11 +1,15 @@
-export const LEADERS = [
+export const LEADERS = 
+[
     
     {
       id: 0,
-      name: 'Marc nseir & charbel Aoun ',
-      image: '/assets/images/Leader_480x320.png',
+      name: 'Jean Paul Pichon ',
+      image: '/assets/images/ceohome.png',
       
       featured: true,
-      description: 'Charbel Aoun & Marc Nsier the leader of the online organisation '
+      description: 'Charbel  & Marc Nsier the leader of the online organisation ',
+      post: 'CEO of the organisation',
+      phone: '+ 961 76 592 837',
+      email: 'operationMC@hotmail.com'
     }
   ];
