@@ -11,7 +11,7 @@ export const DONATIONS =
         id: 1,
         name:'Donation medicale',
         image: '/assets/images/medical_don.png',
-        featured: true,
+        featured: false,
         description:'Donner des donations medicales pour les patients en COVID-19 et pour les personnes qui ont plus que 64 ans et pour ceux qui ont besoin'                    
         },
         {

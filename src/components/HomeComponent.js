@@ -1,9 +1,22 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Jumbotron, Button} from 'reactstrap';
+    import { Loading } from './LoadingComponent';
 
 
-function RenderCard({item}) {
+function RenderCard({item, isLoading, errMess}) {
+    if (isLoading) {
+        return(
+                <Loading />
+        );
+    }
+    else if (errMess) {
+        return(
+                <h4>{errMess}</h4>
+        );
+    }
+    else 
+
 
     return(
         <Card className="card-main">
@@ -50,7 +63,7 @@ function Home(props) {
                  <h1 className="about-us-title">Our Team</h1>
                 <div className="row align-items-start">
                     <div className="col-12 col-md m-1">
-                        <RenderCard item={props.promotion} />
+                    <RenderCard item={props.promotion} isLoading={props.donationsLoading} errMess={props.donationsErrMess}  />
                     </div>
                     <div className="col-12 col-md m-1" >
                         <RenderCard item={props.leader} />
