@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Menu from './MenuComponent';
-import DonationDetail from './DonationDetailComponent'
-import AboutUs from './AboutUsComponent'
+
+import DonationDetail from './DonationDetailComponent';
+import AboutUs from './AboutUsComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
@@ -9,6 +10,10 @@ import Contact from './ContactComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { addComment, fetchDonations } from '../redux/ActionCreators';
+import Login from './Login';
+import { selectUser } from '../redux/userSlice';
+import { useSelector } from 'react-redux';
+
 
 
 const mapStateToProps = state => {
@@ -32,6 +37,10 @@ const mapDispatchToProps = dispatch => ({
 
 class Main extends Component {
 
+  
+
+
+
 
   componentDidMount() {
     this.props.fetchDonations();
@@ -40,6 +49,7 @@ class Main extends Component {
 
   
   render() {
+
     const HomePage = () => {
       return(
           <Home 
@@ -73,6 +83,8 @@ class Main extends Component {
               <Route exact path='/menu' component={() => <Menu donations={this.props.donations} />} />
               <Route path='/menu/:donationId' component={DonationWithId} />
               <Route exact path='/contactus' component={Contact} />
+              <Route exact path='/Login' component={Login} />
+
               <Redirect to="/home" />
           </Switch>
         </div>
