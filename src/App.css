@@ -6,7 +6,7 @@
 body {
   background: rgb(236,236,236);
 }
-.container-main{
+/* .container-main{
   padding-top: 70px;
 }
 
@@ -16,7 +16,7 @@ body {
 
 .menu-main{
   padding-top: 70px;
-}
+} */
 
 
 .row-header {
@@ -39,7 +39,7 @@ body {
 /* ---------------------------------------------------
 #### NAVBAR
 -------------------------------------------------- */
-.navbar-light {
+/* .navbar-light {
   background-color: white;
   }
 
@@ -50,7 +50,8 @@ body {
 
 .nav-link:hover{
   color: #1E90FF !important;
-}
+} */
+
 
 
 /* ---------------------------------------------------

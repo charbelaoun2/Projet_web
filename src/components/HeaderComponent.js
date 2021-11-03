@@ -1,60 +1,49 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
-
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { SidebarData } from './SidebarData';
+import './Login.css';
+import { IconContext } from 'react-icons';
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
+function Header() {
+    const [sidebar, setSidebar] = useState(false)
+
+    const showSidebar = () => setSidebar(!sidebar)
+    return(
+        <>
+        <IconContext.Provider value={{color: '#fff'}}>
+        <div className='navbar'>
+            <Link to='#' className='menu-bars'>
+                <FaIcons.FaBars onClick={showSidebar}/>
+            </Link>
+        </div>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+            <ul className='nav-menu-items' onClick={showSidebar}>
+                <li className='navbar-toggle'>
+                    <Link to='#' className='menu-bars'>
+                        <AiIcons.AiOutlineClose />
+                    </Link>
+                </li>
+                {SidebarData.map((item, index) => {
+                    return (
+                        <li key={index} className={item.cName}>
+                            <Link to={item.path}>
+                                {item.icon}
+                                <span>{item.title}</span>
+                            </Link>
+                        </li>
+                    )
+                })}
+            </ul>
+        </nav>
+        </IconContext.Provider>
+
+        </>
+    );
     
-        this.toggleNav = this.toggleNav.bind(this);
-        this.state = {
-          isNavOpen: false
-        };
-      }
-
-      toggleNav() {
-        this.setState({
-          isNavOpen: !this.state.isNavOpen
-        });
-      }
-
-    render() {
-        return(
-            <div>
-                <Navbar light expand="md" fixed="top">
-                    <div className="container ">
-                        <NavbarToggler onClick={this.toggleNav} />
-                       
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar>
-                            <NavItem>
-                                <NavLink className="nav-link"  to='/home'>Home</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to='/aboutus'>About Us</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link"  to='/menu'>Donations</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to='/contactus'>Contact Us</NavLink>
-
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to='/Login'>Login </NavLink>
-
-                            </NavItem>
-                            
-                            
-                            </Nav>
-                        </Collapse>
-                    </div>
-                </Navbar>
-                
-            </div>
-        );
-    }
 }
 
 export default Header;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Menu from './MenuComponent';
-
 import DonationDetail from './DonationDetailComponent';
 import AboutUs from './AboutUsComponent';
 import Header from './HeaderComponent';
