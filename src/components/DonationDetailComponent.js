@@ -72,11 +72,7 @@ const DonationDetail = (props) => {
         return (
             <div className="container">
             <div className="row">
-                <Breadcrumb>
-    
-                    <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
-                    <BreadcrumbItem active>{props.donation.name}</BreadcrumbItem>
-                </Breadcrumb>
+                
                 <div className="col-12">
                     <h3>{props.donation.name}</h3>
                     <hr />
@@ -87,15 +83,13 @@ const DonationDetail = (props) => {
                     <RenderDonation donation={props.donation} />
                 </div>
                 <div className="col-12 col-md-5 m-1">
-                <RenderComments comments={props.comments}
-                    addComment={props.addComment}
-                    donationId={props.donation.id}
-                />
+                    <RenderComments comments={props.comments} />
                 </div>
             </div>
             </div>
         );
     }
+        
 }
 
 const required = (val) => val && val.length;
