@@ -72,6 +72,11 @@ const DonationDetail = (props) => {
         return (
             <div className="container">
             <div className="row">
+            <Breadcrumb>
+    
+                <BreadcrumbItem><Link to="/menu">Donations</Link></BreadcrumbItem>
+                <BreadcrumbItem active>{props.donation.name}</BreadcrumbItem>
+            </Breadcrumb>
                 
                 <div className="col-12">
                     <h3>{props.donation.name}</h3>
