@@ -20,15 +20,13 @@ function RenderDonation({donation}) {
 function RenderComments({comments, addComment, donationId}) {
     const comnts = comments.map(comment => {
         return (
-            <li key={comment.id}>
-                <p>{comment.comment}</p>
-                <p>-- {comment.author},
-                &nbsp;
-                {new Intl.DateTimeFormat('en-US', 
-                { year: 'numeric', month: 'short', day: '2-digit'})
-                .format(new Date(Date.parse(comment.date)))}
-                </p>
-            </li>
+            <Card>
+        <CardImg top src={comment.image} alt={comment.name} />
+        <CardBody>
+          <CardTitle>{comment.author}</CardTitle>
+       
+        </CardBody>
+      </Card>
         )
     });
     if (comments == null) {
