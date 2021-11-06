@@ -7,39 +7,44 @@ import { Loading } from './LoadingComponent';
 
 function RenderDonation({donation}) {
     return (
-      <Card>
-        <CardImg top src={donation.image} alt={donation.name} />
-        <CardBody>
-          <CardTitle>{donation.name}</CardTitle>
-          <CardText>{donation.description}</CardText>
-        </CardBody>
-      </Card>
+        <Card>
+            <CardImg top src={donation.image} alt={donation.author} style={{ height: '45vh'}}/>
+            <CardBody>
+            <CardTitle>{donation.author}</CardTitle>
+            <CardText>{donation.comment}</CardText>
+            
+            </CardBody>
+    </Card>
     )
   }
 
 function RenderComments({comments, addComment, donationId}) {
     const comnts = comments.map(comment => {
         return (
-            <Card>
-        <CardImg top src={comment.image} alt={comment.name} />
-        <CardBody>
-          <CardTitle>{comment.author}</CardTitle>
-       
-        </CardBody>
-      </Card>
-        )
+            <div className="col-lg-4 col-md-6" style={{ maxWidth: '30rem'}}>
+                <Card>
+                    <CardImg top src={comment.image} alt={comment.author} style={{ height: '45vh'}}/>
+                    <CardBody>
+                    <CardTitle>{comment.author}</CardTitle>
+                    <CardText>{comment.comment}</CardText>
+                    <Button className="btn-lg" color="primary">Get Donation</Button>
+                    </CardBody>
+                </Card>
+        </div>
+            
+    )
     });
     if (comments == null) {
         return <div></div>
     }
     return (
-        <div>
-            <h3>Comments</h3>
-            <ul className="list-unstyled">
-                {comnts}
-            </ul>
-            <CommentForm donationId={donationId} addComment={addComment} />
-        </div>
+
+            <div className="row">
+                               
+                    {comnts}
+            </div>
+            
+         
     );
 }
 
@@ -81,14 +86,17 @@ const DonationDetail = (props) => {
                     <hr />
                 </div>                
             </div>
-            <div className="row">
+            {/* <div className="row">
                 <div className="col-12 col-md-5 m-1">
                     <RenderDonation donation={props.donation} />
                 </div>
-                <div className="col-12 col-md-5 m-1">
+            </div> */}
+            <div className="row">
+            
+            
                     <RenderComments comments={props.comments} />
-                </div>
-            </div>
+                    
+                    </div>
             </div>
         );
     }

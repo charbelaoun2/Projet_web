@@ -6,6 +6,17 @@
 body {
   background: rgb(236,236,236);
 }
+
+.home,
+.aboutus,
+.menu,
+.Login {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
 /* .container-main{
   padding-top: 70px;
 }

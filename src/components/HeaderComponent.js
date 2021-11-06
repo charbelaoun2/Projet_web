@@ -1,50 +1,78 @@
 import React, { Component, useState } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron } from 'reactstrap';
+import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron} from 'reactstrap';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
-import './Login.css';
+import './Navbar.css';
 import { IconContext } from 'react-icons';
+import { Button } from './Button.js';
 
 function Header() {
-    const [sidebar, setSidebar] = useState(false)
+    const [click, setClick] = useState(false);
+    const [button, setButton] = useState(true);
 
-    const showSidebar = () => setSidebar(!sidebar)
+    const handleClick = () => setClick(!click);
+    const closeMobileMenu = () => setClick(false);
+
+    
+
+    const showButton = () =>{
+        if(window.innerWidth <= 960){
+            setButton(false);
+        }else {
+            setButton(true);
+        }
+    };
+
+    window.addEventListener('resize', showButton);
+
     return(
         <>
-        <IconContext.Provider value={{color: '#fff'}}>
-        <div className='navbar'>
-            <Link to='#' className='menu-bars'>
-                <FaIcons.FaBars onClick={showSidebar}/>
-              
-            </Link>
-        </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-            <ul className='nav-menu-items' onClick={showSidebar}>
-                <li className='navbar-toggle'>
-                    <Link to='#' className='menu-bars'>
-                        <AiIcons.AiOutlineClose />
-                    </Link>
-                </li>
-                {SidebarData.map((item, index) => {
-                    return (
-                        <li key={index} className={item.cName}>
-                            <Link to={item.path}>
-                                {item.icon}
-                                <span>{item.title}</span>
-                            </Link>
-                        </li>
-                    )
-                })}
-            </ul>
+        <nav className="navbar">
+            <div className="navbar-container">
+                <Link to="/" className="navbar-logo">
+                    OperationMC <i className='fab fa-typo3' />
+                </Link>
+                <div className="menu-icon" onClick={handleClick}>
+                    <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+                </div>
+                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                    <li className="nav-item">
+                        <Link to='/' className="nav-links" onClick={closeMobileMenu}>
+                            Home
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/aboutus' className="nav-links" onClick={closeMobileMenu}>
+                            About Us
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/contactus' className="nav-links" onClick={closeMobileMenu}>
+                            Contact Us
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/menu' className="nav-links" onClick={closeMobileMenu}>
+                            Donate
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to='/Login'
+                         className="nav-links-mobile" 
+                         onClick={closeMobileMenu}>
+                            SIGN UP
+                        </Link>
+                    </li>
+                    
+                </ul>
+                {button && <Button className='btn--outline'>SIGN UP!!</Button>}
+            </div>
         </nav>
-        </IconContext.Provider>
-
         </>
-    );
-    
+    )
 }
 
-export default Header;
+export default Header
