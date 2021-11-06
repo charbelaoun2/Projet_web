@@ -75,8 +75,8 @@ export const COMMENTS =
         id: 9,
         donationId: 2,
         rating: 5,
-        image:'/assets/images/Pcr.png',
-        comment: "Bourse Universitaire pour un etudiant",
+        image:'/assets/images/boitescholaire.png',
+        comment: "Boite de fourniture scholaire pour les enfants d'une famille",
         author: "John Lemon",
         date: "2021-1-11"
     },
@@ -84,8 +84,8 @@ export const COMMENTS =
         id: 10,
         donationId: 2,
         rating: 5,
-        image:'/assets/images/Pcr.png',
-        comment: "Livres scholaire pour 3 etudiants",
+        image:'/assets/images/Livredonation.png',
+        comment: "Livre scholaires",
         author: "John Lemon",
         date: "2021-1-11"
     },
@@ -93,9 +93,9 @@ export const COMMENTS =
     {
         id: 11,
         donationId: 3,
-        image:'/assets/images/Pcr.png',
+        image:'/assets/images/boitealim.png',
         rating: 5,
-        comment: "300 000 LL supermarket",
+        comment: "Boite alimentaire pour une famille",
         author: "John Lemon",
         date: "2021-1-11"
         
@@ -103,22 +103,13 @@ export const COMMENTS =
     
     
     {
-        id: 14,
+        id: 12,
         donationId: 4,
-        image:'/assets/images/Pcr.png',
+        image:'/assets/images/boitevest.png',
         rating: 5,
-        comment: "Voucher de 1 000 000 LL pour acheter des vetments",
+        comment: "Boite d'habits pour une famille",
         author: "John Lemon",
         date: "2021-1-11"
     },
-    {
-        
-        id: 15,
-        donationId: 4,
-        image:'/assets/images/Pcr.png',
-        rating: 5,
-        comment: "Voucher de 500 000 LL pour des vetments",
-        author: "John Lemon",
-        date: "2021-1-11"
-    }
+    
 ]

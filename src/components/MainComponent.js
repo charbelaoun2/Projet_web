@@ -5,11 +5,14 @@ import AboutUs from './AboutUsComponent';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
+import Donate from './Donate';
 import Contact from './ContactComponent';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { addComment, fetchDonations } from '../redux/ActionCreators';
 import Login from './Login';
+
+
 import { selectUser } from '../redux/userSlice';
 import { useSelector } from 'react-redux';
 
@@ -76,6 +79,7 @@ class Main extends Component {
       <div>
         <Header />
         <div>
+          
           <Switch>
               <Route path='/home' component={HomePage} />
               <Route exact path='/aboutUs' component={AboutUs} />
@@ -83,6 +87,7 @@ class Main extends Component {
               <Route path='/menu/:donationId' component={DonationWithId} />
               <Route exact path='/contactus' component={Contact} />
               <Route exact path='/Login' component={Login} />
+              <Route exact path='/Donate' component={Donate} />
 
               <Redirect to="/home" />
           </Switch>

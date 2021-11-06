@@ -49,6 +49,7 @@ function Header() {
                             About Us
                         </Link>
                     </li>
+                   
                     <li className="nav-item">
                         <Link to='/contactus' className="nav-links" onClick={closeMobileMenu}>
                             Contact Us
@@ -59,16 +60,11 @@ function Header() {
                             Donate
                         </Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/Login'
-                         className="nav-links-mobile" 
-                         onClick={closeMobileMenu}>
-                            SIGN UP
-                        </Link>
-                    </li>
+                    
+                    
                     
                 </ul>
-                {button && <Button className='btn--outline'>SIGN UP!!</Button>}
+                
             </div>
         </nav>
         </>
