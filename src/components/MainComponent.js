@@ -1,65 +1,41 @@
 import React, { Component } from 'react';
 import Menu from './MenuComponent';
 import DonationDetail from './DonationDetailComponent';
-import AboutUs from './AboutUsComponent';
+import { DONATIONS } from '../shared/donations';
+import { PROMOTIONS } from '../shared/promotions';
+import { LEADERS } from '../shared/leaders';
+import Donate from './Donate';
 import Header from './HeaderComponent';
+import AboutUs from './AboutUsComponent'
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
-import Donate from './Donate';
 import Contact from './ContactComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux';
-import { addComment, fetchDonations } from '../redux/ActionCreators';
-import Login from './Login';
-
-
-import { selectUser } from '../redux/userSlice';
-import { useSelector } from 'react-redux';
-
-
-
-const mapStateToProps = state => {
-  return {
-    donations: state.donations,
-    comments: state.comments,
-    promotions: state.promotions,
-    leaders: state.leaders
-  }
-}
-const mapDispatchToProps = dispatch => ({
-
-  addComment: (donationId, rating, author, comment) => 
-      dispatch( addComment(donationId, rating, author, comment)),
-      fetchDonations: () => { dispatch(fetchDonations())}
-})
-
-
-
-
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 class Main extends Component {
 
-  
-
-
-
-
-  componentDidMount() {
-    this.props.fetchDonations();
+  constructor(props) {
+    super(props);
+    this.state = {
+      donations: DONATIONS,
+      promotions: PROMOTIONS,
+      leaders: LEADERS,
+    };
   }
 
+  onDonationSelect(donationid){
+    this.setState({
+        selectedDonation : donationid
+    })
+  }
 
-  
   render() {
-
     const HomePage = () => {
       return(
           <Home 
-              donation={this.props.donations.donations.filter((donation) => donation.featured)[0]}
-              donationsLoading={this.props.donations.isLoading}
-              donationsErrMess={this.props.donations.errMess}
-              promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
-              leader={this.props.leaders.filter((leader) => leader.featured)[0]}
+              donation={this.state.donations.filter((donation) => donation.featured)[0]}
+              promotion={this.state.promotions.filter((promo) => promo.featured)[0]}
+              leader={this.state.leaders.filter((leader) => leader.featured)[0]}
           />
       );
     }
@@ -75,27 +51,25 @@ class Main extends Component {
       );
     };
 
+
     return (
       <div>
         <Header />
-        <div>
+        <Switch>
           
-          <Switch>
-              <Route path='/home' component={HomePage} />
-              <Route exact path='/aboutUs' component={AboutUs} />
-              <Route exact path='/menu' component={() => <Menu donations={this.props.donations} />} />
-              <Route path='/menu/:donationId' component={DonationWithId} />
-              <Route exact path='/contactus' component={Contact} />
-              <Route exact path='/Login' component={Login} />
-              <Route exact path='/Donate' component={Donate} />
+          <Route exact path='/menu' component={() => <Menu donations={this.state.donations} />} />
+          <Route exact path='/contactus' component={Contact} />
+          <Route exact path='/AboutUs' component={AboutUs}/>
+         
+          <Route exact path='/Donate' component={Donate} />
+          <Route path='/' component={HomePage} />
 
-              <Redirect to="/home" />
-          </Switch>
-        </div>
-        <Footer />
+          <Redirect to="/home" />
+        </Switch>
+        <Footer/>     
       </div>
     );
   }
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+export default Main;
