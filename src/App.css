@@ -7,16 +7,6 @@ body {
   background: rgb(236,236,236);
 }
 
-.home,
-.aboutus,
-.menu,
-.Login {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-}
 /* .container-main{
   padding-top: 70px;
 }
@@ -298,4 +288,19 @@ address {
 
 .address h4{
   margin-top: 5px;
+}
+
+.btn-home{
+  width: 110px;
+  height: 55px;
+  font-size: x-large !important;
+  font-weight: bold !important;
+}
+
+.btn-aboutus{
+  width: 110px;
+  height: 45px;
+  float: right;
+  font-size: large !important;
+  font-weight: bold !important;
 }

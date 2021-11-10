@@ -54,7 +54,7 @@ function Home(props) {
               
             <h1 className="hero-text-h1">You can help people thrive.</h1>
             
-            <Link to="/Donate" className="btn btn-primary">Donate</Link>
+            <Link to="/Donate" className="btn btn-primary btn-home">Donate</Link>
             
             
                

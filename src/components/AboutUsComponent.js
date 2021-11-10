@@ -125,7 +125,7 @@ class AboutUs extends Component{
                         <div className="col-6">
                             <h1>{this.state.header}</h1>
                             <p>{this.state.msg}</p>
-                            <Link to="/Donate" className="btn btn-primary">Donate</Link>
+                            <Link to="/Donate" className="btn btn-primary btn-aboutus">Donate</Link>
                         </div>
 
                         <div className="col-6">

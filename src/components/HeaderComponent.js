@@ -59,6 +59,11 @@ function Header() {
                             Donate
                         </Link>
                     </li>
+                    {/* <li>
+                        <Link to='/' className="nav-links-mobile"
+                        onClick={closeMobileMenu}>Sign Up</Link>
+                    </li>
+                    {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} */}
                     
                     
                 </ul>

@@ -1,0 +1,21 @@
+.container-donate{
+    padding: 50px;
+}
+
+.title-donate{
+    color: #1E90FF;
+}
+
+.text-donate{
+    opacity: 0.6;
+}
+
+.icon-donate i{
+    padding-right: 20px;
+    padding-top: 25px;
+    color: #1E90FF;
+}
+
+.second-donate{
+    padding-top: 50px;
+}
