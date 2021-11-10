@@ -2,7 +2,6 @@ import React from 'react';
 import { Component } from 'react';
 import {Container, Card, CardImg, CardImgOverlay, CardTitle, Button} from 'reactstrap'
 
-import { Link } from 'react-router-dom';
 
 class AboutUs extends Component{
     constructor(props) {
@@ -125,7 +124,7 @@ class AboutUs extends Component{
                         <div className="col-6">
                             <h1>{this.state.header}</h1>
                             <p>{this.state.msg}</p>
-                            <Link to="/Donate" className="btn btn-primary">Donate</Link>
+                            <Button className="btn-lg btn_aboutus" color="info">DONATE</Button>
                         </div>
 
                         <div className="col-6">

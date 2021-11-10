@@ -10,7 +10,37 @@ import AboutUs from './AboutUsComponent'
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
 import Contact from './ContactComponent';
+<<<<<<< HEAD
 import { Switch, Route, Redirect } from 'react-router-dom';
+=======
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { addComment, fetchDonations } from '../redux/ActionCreators';
+import Login from './Login';
+import { selectUser } from '../redux/userSlice';
+import { useSelector } from 'react-redux';
+
+
+
+const mapStateToProps = state => {
+  return {
+    donations: state.donations,
+    comments: state.comments,
+    promotions: state.promotions,
+    leaders: state.leaders
+  }
+}
+const mapDispatchToProps = dispatch => ({
+
+  addComment: (donationId, rating, author, comment) => 
+      dispatch( addComment(donationId, rating, author, comment)),
+      fetchDonations: () => { dispatch(fetchDonations())}
+})
+
+
+
+
+>>>>>>> parent of 3aa3070 (ACtivating Donate Button)
 
 class Main extends Component {
 
@@ -55,6 +85,7 @@ class Main extends Component {
     return (
       <div>
         <Header />
+<<<<<<< HEAD
         <Switch>
           
           <Route exact path='/menu' component={() => <Menu donations={this.state.donations} />} />
@@ -67,6 +98,21 @@ class Main extends Component {
           <Redirect to="/home" />
         </Switch>
         <Footer/>     
+=======
+        <div>
+          <Switch>
+              <Route path='/home' component={HomePage} />
+              <Route exact path='/aboutUs' component={AboutUs} />
+              <Route exact path='/menu' component={() => <Menu donations={this.props.donations} />} />
+              <Route path='/menu/:donationId' component={DonationWithId} />
+              <Route exact path='/contactus' component={Contact} />
+              <Route exact path='/Login' component={Login} />
+
+              <Redirect to="/home" />
+          </Switch>
+        </div>
+        <Footer />
+>>>>>>> parent of 3aa3070 (ACtivating Donate Button)
       </div>
     );
   }
