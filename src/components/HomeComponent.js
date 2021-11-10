@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Jumbotron, Button} from 'reactstrap';
     import { Loading } from './LoadingComponent';
+    import { Link } from 'react-router-dom';
 
 
 function RenderCard({item, isLoading, errMess}) {
@@ -53,7 +54,7 @@ function Home(props) {
               
             <h1 className="hero-text-h1">You can help people thrive.</h1>
             
-            <Button className="btn-lg btn-lg-h1" color="primary" >DONATE</Button>
+            <Link to="/Donate" className="btn btn-primary">Donate</Link>
             
             
                

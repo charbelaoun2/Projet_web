@@ -1,35 +1,31 @@
+
 import './App.css';
 
 import { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Main from './components/MainComponent';
-import React from 'react';
-import Login from "./components/Login"
-import { selectUser } from './features/userSlice';
-import Logout from './components/Logout';
-import {useSelector} from "react-redux";
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
 
-const App=()=>{
+const store = ConfigureStore();
 
-  const user= useSelector(selectUser);
+class App extends Component {
+  
 
-  return (
-    <div>
-      {user ? <UnAuth/> : <Login/>}
-    </div>
 
-  );
-};
 
-const UnAuth = ()=>{
-  return(
-  <BrowserRouter>
-    <div className="App">
-       <Main />
-    </div>
-
-  </BrowserRouter>
-)
+  render() {
+    return (
+      <Provider store={store}>
+      <BrowserRouter>
+        <div className="App">
+          <Main />
+        </div>
+      </BrowserRouter>
+    </Provider>
+    );
+  }
 }
 
 export default App;
+
