@@ -1,50 +1,117 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Footer.css'
 
 function Footer(props) {
     return(
-    <div className="footer">
-        <div className="container">
-            <div className="row justify-content-center">             
-                <div className="col-4">
-                    <h5>Links</h5>
-                    <ul className="list-unstyled ">
-                    <li><Link to='/home'><i className="fa fa-home footer-info"> Home</i></Link></li>
-                    <li><Link to='/aboutus'><i className="fa fa-info footer-info"> About Us</i></Link></li>
-                    <li><Link to='/menu'><i className="fa fa-bars footer-info"> Menu</i></Link></li>
-                    <li><Link to='/contactus'><i className="fa fa-phone footer-info"> Contact Us</i></Link></li>
-                    </ul>
-                </div>
-                <div className="col-4">
-                    <h5>Our Address</h5>
-                    <address>
-		              Beirut Lebanon <br />
-		              Naccach Lebanon <br />
-		             Mansourieh Lebanon <br />
-		              <i className="fa fa-phone fa-lg"></i>: +961 01 8777 22<br />
-		              <i className="fa fa-fax fa-lg"></i>: +961 71 061 872 <br />
-		              <i className="fa fa-envelope fa-lg"></i>: <a href="mailto:confusion@food.net">
-                         operationMC@hotmail.com</a>
-                    </address>
-                </div>
-                <div className="col-4 align-self-center">
-                    <div className="text-center">
-                        <a className="btn btn-social-icon btn-google" href="http://google.com/+"><i className="fa fa-google-plus"></i></a>
-                        <a className="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i className="fa fa-facebook"></i></a>
-                        <a className="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i className="fa fa-linkedin"></i></a>
-                        <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i className="fa fa-twitter"></i></a>
-                        <a className="btn btn-social-icon btn-google" href="http://youtube.com/"><i className="fa fa-youtube"></i></a>
-                        <a className="btn btn-social-icon" href="mailto:"><i className="fa fa-envelope-o"></i></a>
+        <footer class="footer-section">
+        <div class="container">
+            <div class="footer-cta pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="cta-text">
+                                <h4>Find us</h4>
+                                <span>Beirut, Lebanon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="fas fa-phone"></i>
+                            <div class="cta-text">
+                                <h4>Call us</h4>
+                                <span>+961 352 736</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-4 mb-30">
+                        <div class="single-cta">
+                            <i class="far fa-envelope-open"></i>
+                            <div class="cta-text">
+                                <h4>Mail us</h4>
+                                <span>operationmc@work.com</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="row justify-content-center">             
-                <div className="col-auto">
-                    <p>© Copyright 2021 Operation MC </p>
+            <div class="footer-content pt-5 pb-5">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-logo">
+                                <Link to="/" className="navbar-logo">
+                                     OperationMC <i className='fab fa-typo3' />
+                                </Link>
+                            </div>
+                            <div class="footer-text">
+                                <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
+                                elit,Lorem ipsum dolor sit amet.</p>
+                            </div>
+                            <div class="footer-social-icon">
+                                <span>Follow us</span>
+                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Useful Links</h3>
+                            </div>
+                            <ul className="list-unstyled ">
+                                <li><Link to='/home'><i className="fa fa-home"> Home</i></Link></li>
+                                <li><Link to='/aboutus'><i className="fa fa-info"> About Us</i></Link></li>
+                                <li><Link to='/menu'><i className="fa fa-bars"> Menu</i></Link></li>
+                                <li><Link to='/contactus'><i className="fa fa-phone"> Contact Us</i></Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
+                        <div class="footer-widget">
+                            <div class="footer-widget-heading">
+                                <h3>Subscribe</h3>
+                            </div>
+                            <div class="footer-text mb-25">
+                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
+                            </div>
+                            <div class="subscribe-form">
+                                <form action="#">
+                                    <input type="text" placeholder="Email Address"></input>
+                                    <button><i class="fab fa-telegram-plane"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="copyright-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 text-center text-lg-left">
+                        <div class="copyright-text">
+                            <p>Copyright &copy; 20221, All Right Reserved </p>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
+                        <div class="footer-menu">
+                            <ul>
+                            <li><Link to='/home'><i> Home</i></Link></li>
+                                <li><Link to='/aboutus'><i> About Us</i></Link></li>
+                                <li><Link to='/menu'><i> Menu</i></Link></li>
+                                <li><Link to='/contactus'><i> Contact Us</i></Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
     )
 }
 
