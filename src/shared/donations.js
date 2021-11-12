@@ -1,12 +1,6 @@
 export const DONATIONS =
     [
-        {
-            id: 0,
-            name:'Donations',
-            image: '/assets/images/DonationsMain.png',
-            featured: true,
-            description:'Possibiliter de beneficier de differentes Donations offre par des peronnes divers'                    
-            },
+        
         {
         id: 1,
         name:'Donation medicale',
