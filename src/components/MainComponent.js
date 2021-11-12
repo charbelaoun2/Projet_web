@@ -4,6 +4,7 @@ import DonationDetail from "./DonationDetailComponent";
 import AboutUs from "./AboutUsComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
+import Admin from '../Admin/AdminComponent'
 //import Footer from './indexFooter';
 import Home from "./HomeComponent";
 import Donate from "./Donate";
@@ -89,6 +90,7 @@ class Main extends Component {
             <Route exact path="/contactus" component={Contact} />
 
             <Route exact path="/Donate" component={Donate} />
+            <Route path="/Admin" component={Admin} />
 
             <Redirect to="/home" />
           </Switch>

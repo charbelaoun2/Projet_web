@@ -1,77 +1,154 @@
-import React, { Component, useState } from 'react';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron} from 'reactstrap';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { SidebarData } from './SidebarData';
-import './Navbar.css';
-import { IconContext } from 'react-icons';
-import { Button } from './Button.js';
+import React, { Component } from "react";
+import {
+  Navbar,
+  NavbarBrand,
+  Nav,
+  NavbarToggler,
+  Collapse,
+  NavItem,
+  Jumbotron,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form,
+  FormGroup,
+  Input,
+  Label,
+} from "reactstrap";
+import { BrowserRouter, NavLink, Route } from "react-router-dom";
 
-function Header() {
-    const [click, setClick] = useState(false);
-    const [button, setButton] = useState(true);
+import { Link } from "react-router-dom";
+import "./Navbar.css";
+import Contact from "./ContactComponent";
+import Menu from "./MenuComponent";
 
-    const handleClick = () => setClick(!click);
-    const closeMobileMenu = () => setClick(false);
+import { useHistory, Redirect, withRouter } from "react-router-dom";
 
-    
+class Header extends Component {
+  constructor(props) {
+    super(props);
 
-    const showButton = () =>{
-        if(window.innerWidth <= 960){
-            setButton(false);
-        }else {
-            setButton(true);
-        }
+    this.toggleModal = this.toggleModal.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.state = {
+      isNavOpen: false,
+      isModalOpen: false,
     };
+  }
 
-    window.addEventListener('resize', showButton);
+  toggleModal() {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen,
+    });
+  }
+  handleLogin(path) {
+    // alert("Username: " + this.username.value + " Password: " + this.password.value
+    //     + " Remember: " + this.remember.checked);
+    if (this.username.value == "admin" && this.password.value == "admin") {
+      this.props.history.push(path);
+    } else {
+      alert("");
+    }
 
-    return(
-        <>
-        <nav className="navbar">
-            <div className="navbar-container">
-                <Link to="/" className="navbar-logo">
-                    OperationMC <i className='fab fa-typo3' />
-                </Link>
-                <div className="menu-icon" onClick={handleClick}>
-                    <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-                </div>
-                <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-                    <li className="nav-item">
-                        <Link to='/' className="nav-links" onClick={closeMobileMenu}>
-                            Home
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to='/aboutus' className="nav-links" onClick={closeMobileMenu}>
-                            About Us
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to='/contactus' className="nav-links" onClick={closeMobileMenu}>
-                            Contact Us
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to='/menu' className="nav-links" onClick={closeMobileMenu}>
-                            Donations
-                        </Link>
-                    </li>
-                    {/* <li>
-                        <Link to='/' className="nav-links-mobile"
-                        onClick={closeMobileMenu}>Sign Up</Link>
-                    </li>
-                    {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>} */}
-                    
-                    
-                </ul>
-                
-            </div>
-        </nav>
-        </>
-    )
+    //<Link to="/Menu" className="btn btn-primary btn-home"></Link>
+  }
+
+  render() {
+    return (
+      <div>
+        <Navbar className="navbar-navbar" dark expand="md">
+          <div className="container">
+            <NavbarToggler onClick={this.toggleNav} />
+            <NavbarBrand className="mr-auto" href="/">
+              <img
+                src="assets/images/logo.png"
+                height="30"
+                width="41"
+                alt="Ristorante Con Fusion"
+              />
+            </NavbarBrand>
+            <Collapse isOpen={this.state.isNavOpen} navbar>
+              <Nav navbar>
+                <NavItem>
+                  <NavLink className="nav-link" to="/home">
+                    <span className="fa fa-home fa-lg"></span> Home
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/aboutus">
+                    <span className="fa fa-info fa-lg"></span> About Us
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/menu">
+                    <span className="fa fa-list fa-lg"></span> Menu
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/contactus">
+                    <span className="fa fa-address-card fa-lg"></span> Contact
+                    Us
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </div>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <Button outline onClick={this.toggleModal}>
+                <span className="fa fa-sign-in fa-lg"></span> LogIn
+              </Button>
+            </NavItem>
+          </Nav>
+        </Navbar>
+
+        <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+          <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
+          <ModalBody>
+            <Form onSubmit={this.handleLogin}>
+              <FormGroup>
+                <Label htmlFor="username">Username</Label>
+                <Input
+                  type="text"
+                  id="username"
+                  name="username"
+                  innerRef={(input) => (this.username = input)}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  type="password"
+                  id="password"
+                  name="password"
+                  innerRef={(input) => (this.password = input)}
+                />
+              </FormGroup>
+              <FormGroup check>
+                <Label check>
+                  <Input
+                    type="checkbox"
+                    name="remember"
+                    innerRef={(input) => (this.remember = input)}
+                  />
+                  Remember me
+                </Label>
+              </FormGroup>
+              <Button
+                type="submit"
+                value="submit"
+                color="primary"
+                onClick={() => this.handleLogin("/Admin")}
+              >
+                Login
+              </Button>
+            </Form>
+          </ModalBody>
+        </Modal>
+      </div>
+    );
+  }
 }
 
-export default Header
+export default withRouter(Header);

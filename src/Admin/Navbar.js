@@ -41,19 +41,11 @@ function Header() {
                 <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                     <li className="nav-item">
                         <Link to='/' className="nav-links" onClick={closeMobileMenu}>
-                            Hommesss
+                            Home
                         </Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/aboutus' className="nav-links" onClick={closeMobileMenu}>
-                            About Us
-                        </Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link to='/contactus' className="nav-links" onClick={closeMobileMenu}>
-                            Contact Us
-                        </Link>
-                    </li>
+                    
+                   
                     <li className="nav-item">
                         <Link to='/menu' className="nav-links" onClick={closeMobileMenu}>
                             Donations
