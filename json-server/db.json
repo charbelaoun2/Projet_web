@@ -38,7 +38,7 @@
             "donationId": 0,
             "rating": 5,
             "comment": "Differents donations se presentent",
-            "author": "John Lemon",
+            "author": "Ibrahim ismail",
             "date": "2021-1-11"
         },
         {
@@ -46,7 +46,7 @@
             "donationId": 0,
             "rating": 4,
             "comment": "L'utilisateur peut deposer plusieurs donations",
-            "author": "marc",
+            "author": "marc geagea",
             "date": "2021-1-11"
         },
         {
@@ -54,7 +54,7 @@
             "donationId": 0,
             "rating": 5,
             "comment": "L'utilisatuer peur beneficier de pluiseurs donations",
-            "author": "John Lemon",
+            "author": "",
             "date": "2021-1-11"
         },
         
@@ -64,7 +64,7 @@
             "rating": 4,
             "image": "images/Pcr.png",
             "comment": "50-test de PCR-CORONA",
-            "author": "John Lemon",
+            "author": "Michel nassar",
             "date": "2021-1-11"
         },
         {
@@ -73,7 +73,7 @@
             "rating": 4,
             "image":"images/dawa.png",
             "comment": "30-medicaments Panadole",
-            "author": "John Lemon",
+            "author": "joseph nseir",
             "date": "2021-1-11"
         },
         {
@@ -82,7 +82,7 @@
             "rating": 3,
             "image":"images/oxygene.png",
             "comment": "10-medicaments pour les Enfants",
-            "author": "John Lemon",
+            "author": "Jad mouawad",
             "date": "2021-1-11"
         },
         {
@@ -91,7 +91,7 @@
             "rating": 4,
             "image":"images/masque.png",
             "comment": "des masques pour se proteger de corona virus",
-            "author": "John Lemon",
+            "author": "John metlej",
             "date": "2021-1-11"
         },
         
@@ -101,7 +101,7 @@
             "rating": 5,
             "image":"images/bourse.png",
             "comment": "Bourse-scholaire pour 2 enfants",
-            "author": "John Lemon",
+            "author": "Lara koro",
             "date": "2021-1-11"
         },
         {
@@ -110,16 +110,16 @@
             "rating": 5,
             "image":"images/boitescholaire.png",
             "comment": "Boite de fourniture scholaire pour les enfants d'une famille",
-            "author": "John Lemon",
+            "author": "ralph nseir",
             "date": "2021-1-11"
         },
         {
             "id": 10,
             "donationId": 2,
             "rating": 5,
-            "image":"images/Livredonation.png",
-            "comment": "Livre scholaires",
-            "author": "John Lemon",
+            "image":"images/private.png",
+            "comment": "lecons prive",
+            "author": "perla aoun",
             "date": "2021-1-11"
         },
         
@@ -129,7 +129,7 @@
             "image":"images/boitealim.png",
             "rating": 5,
             "comment": "Boite alimentaire pour une famille",
-            "author": "John Lemon",
+            "author": "Mia sawaya",
             "date": "2021-1-11"
             
         },
@@ -138,10 +138,10 @@
         {
             "id": 12,
             "donationId": 4,
-            "image":"images/boitevest.png",
+            "image":"images/boitevesti.png",
             "rating": 5,
             "comment": "Boite d'habits pour une famille",
-            "author": "John Lemon",
+            "author": "Hiba salemeh",
             "date": "2021-1-11"
         }
         

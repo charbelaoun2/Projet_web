@@ -28,13 +28,19 @@ import { useHistory, Redirect, withRouter } from "react-router-dom";
 class Header extends Component {
   constructor(props) {
     super(props);
-
-    this.toggleModal = this.toggleModal.bind(this);
-    this.handleLogin = this.handleLogin.bind(this);
     this.state = {
       isNavOpen: false,
       isModalOpen: false,
     };
+    this.toggleNav = this.toggleNav.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  toggleNav() {
+    this.setState({
+      isNavOpen: !this.state.isNavOpen,
+    });
   }
 
   toggleModal() {
@@ -44,7 +50,7 @@ class Header extends Component {
   }
   handleLogin(path) {
     // alert("Username: " + this.username.value + " Password: " + this.password.value
-    //     + " Remember: " + this.remember.checked);
+    // + " Remember: " + this.remember.checked);
     if (this.username.value == "admin" && this.password.value == "admin") {
       this.props.history.push(path);
     } else {
@@ -58,37 +64,31 @@ class Header extends Component {
     return (
       <div>
         <Navbar className="navbar-navbar" dark expand="md">
-          <div className="container">
+          <div className="navbar-container">
             <NavbarToggler onClick={this.toggleNav} />
-            <NavbarBrand className="mr-auto" href="/">
-              <img
-                src="assets/images/logo.png"
-                height="30"
-                width="41"
-                alt="Ristorante Con Fusion"
-              />
+            <NavbarBrand className="mr-auto navbar-logo" href="/">
+              OperationMC <i className="fab fa-typo3" />
             </NavbarBrand>
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar>
-                <NavItem>
+                <NavItem className="nav-item">
                   <NavLink className="nav-link" to="/home">
-                    <span className="fa fa-home fa-lg"></span> Home
+                    <span className=""></span> Home
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem className="nav-item">
                   <NavLink className="nav-link" to="/aboutus">
-                    <span className="fa fa-info fa-lg"></span> About Us
+                    <span className=""></span> About Us
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem className="nav-item">
                   <NavLink className="nav-link" to="/menu">
-                    <span className="fa fa-list fa-lg"></span> Menu
+                    <span className=""></span> Donations
                   </NavLink>
                 </NavItem>
-                <NavItem>
+                <NavItem className="nav-item">
                   <NavLink className="nav-link" to="/contactus">
-                    <span className="fa fa-address-card fa-lg"></span> Contact
-                    Us
+                    <span className=""></span> Contact Us
                   </NavLink>
                 </NavItem>
               </Nav>
