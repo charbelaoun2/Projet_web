@@ -11,7 +11,7 @@ import Donate from "./Donate";
 import Contact from "./ContactComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { addComment, fetchDonations, fetchComments, fetchPromos } from '../redux/ActionCreators';
+import { addComment, fetchDonations, fetchComments } from '../redux/ActionCreators';
 
 import { selectUser } from "../redux/userSlice";
 import { useSelector } from "react-redux";
@@ -29,14 +29,14 @@ const mapDispatchToProps = dispatch => ({
   fetchDonations: () => { dispatch(fetchDonations())},
   //resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
   fetchComments: () => dispatch(fetchComments()),
-  fetchPromos: () => dispatch(fetchPromos())
+ 
 });
 
 class Main extends Component {
   componentDidMount() {
     this.props.fetchDonations();
     this.props.fetchComments();
-    this.props.fetchPromos();
+   
    
   }
 
@@ -51,9 +51,7 @@ class Main extends Component {
           }
           donationsLoading={this.props.donations.isLoading}
           donationErrMess={this.props.donations.errMess}
-          promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
-          promoLoading={this.props.promotions.isLoading}
-          promoErrMess={this.props.promotions.errMess}
+          promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
           leader={this.props.leaders.filter((leader) => leader.featured)[0]}
         />
       );

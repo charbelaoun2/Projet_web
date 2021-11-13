@@ -146,33 +146,8 @@
         }
         
     
-      ],
-    
-    "promotions": [
-        {
-          "id": 0,
-          "name": "Marcus Morris",
-          "image": "images/hrhome.png",
-          
-          "featured": true,
-          "description": "Possibiliter d offrire des donations de differentes categories",
-          "post": "HR",
-          "phone": "+961 81 019 381",
-          "email": "operationMC@hotmail.com"
-        }
-      ],
-      "leaders": [
-        {
-          "id": 0,
-          "name": "Jean Paul Pichon",
-          "image": "images/ceohome.png",
-          
-          "featured": true,
-          "description": "Charbel  & Marc Nsier the leader of the online organisation",
-          "post": "CEO of the organisation",
-          "phone": "+ 961 76 592 837",
-          "email": "operationMC@hotmail.com"
-        }
       ]
+    
+    
     
 }
