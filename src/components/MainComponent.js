@@ -11,7 +11,7 @@ import Donate from "./Donate";
 import Contact from "./ContactComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { addComment, fetchDonations } from "../redux/ActionCreators";
+import { fetchDonations } from "../redux/ActionCreators";
 
 import { selectUser } from "../redux/userSlice";
 import { useSelector } from "react-redux";
@@ -25,8 +25,8 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = (dispatch) => ({
-  addComment: (donationId, rating, author, comment) =>
-    dispatch(addComment(donationId, rating, author, comment)),
+  // addComment: (donationId, rating, author, comment) =>
+  //   dispatch(addComment(donationId, rating, author, comment)),
   fetchDonations: () => {
     dispatch(fetchDonations());
   },
@@ -69,7 +69,7 @@ class Main extends Component {
             (comment) =>
               comment.donationId === parseInt(match.params.donationId, 10)
           )}
-          addComment={this.props.addComment}
+          //addComment={this.props.addComment}
         />
       );
     };

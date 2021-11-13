@@ -47,14 +47,15 @@ function Footer(props) {
                                 </Link>
                             </div>
                             <div class="footer-text">
-                                <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
-                                elit,Lorem ipsum dolor sit amet.</p>
+                                <p> OperationMc permet au gens de beneficier des donations de differentes categories coome elle permet au gens de deposer des 
+                                    donations pour aider autrui.
+                                </p>
                             </div>
                             <div class="footer-social-icon">
                                 <span>Follow us</span>
-                                <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
-                                <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
-                                <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a>
+                                <a href="http://www.facebook.com"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                <a href="http://www.twitter.com"><i class="fab fa-twitter twitter-bg"></i></a>
+                                <a href="http://ww.google.com"><i class="fab fa-google-plus-g google-bg"></i></a>
                             </div>
                         </div>
                     </div>
@@ -66,7 +67,7 @@ function Footer(props) {
                             <ul className="list-unstyled ">
                                 <li><Link to='/home'><i className="fa fa-home"> Home</i></Link></li>
                                 <li><Link to='/aboutus'><i className="fa fa-info"> About Us</i></Link></li>
-                                <li><Link to='/menu'><i className="fa fa-bars"> Menu</i></Link></li>
+                                <li><Link to='/menu'><i className="fa fa-bars"> Donations</i></Link></li>
                                 <li><Link to='/contactus'><i className="fa fa-phone"> Contact Us</i></Link></li>
                             </ul>
                         </div>
@@ -74,17 +75,9 @@ function Footer(props) {
                     <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
                         <div class="footer-widget">
                             <div class="footer-widget-heading">
-                                <h3>Subscribe</h3>
+                                <h3>Donate</h3>
                             </div>
-                            <div class="footer-text mb-25">
-                                <p>Don’t miss to subscribe to our new feeds, kindly fill the form below.</p>
-                            </div>
-                            <div class="subscribe-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Email Address"></input>
-                                    <button><i class="fab fa-telegram-plane"></i></button>
-                                </form>
-                            </div>
+                            <Link to="/Donate" className="btn btn-primary">Donate</Link>
                         </div>
                     </div>
                 </div>
@@ -103,7 +96,7 @@ function Footer(props) {
                             <ul>
                             <li><Link to='/home'><i> Home</i></Link></li>
                                 <li><Link to='/aboutus'><i> About Us</i></Link></li>
-                                <li><Link to='/menu'><i> Menu</i></Link></li>
+                                <li><Link to='/menu'><i> Donations</i></Link></li>
                                 <li><Link to='/contactus'><i> Contact Us</i></Link></li>
                             </ul>
                         </div>

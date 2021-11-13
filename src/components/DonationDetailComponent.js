@@ -5,6 +5,8 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 
+
+
 function RenderDonation({donation}) {
     return (
         <Card>
@@ -18,7 +20,14 @@ function RenderDonation({donation}) {
     )
   }
 
+
+
+
 function RenderComments({comments, addComment, donationId}) {
+    function handleClick(e) {
+        e.preventDefault();
+        alert('You clicked submit.');
+        }
     const comnts = comments.map(comment => {
         return (
             <div className="col-lg-4 col-md-6" style={{ maxWidth: '30rem'}}>
@@ -27,12 +36,13 @@ function RenderComments({comments, addComment, donationId}) {
                     <CardBody>
                     <CardTitle>{comment.author}</CardTitle>
                     <CardText>{comment.comment}</CardText>
-                    <Button className="btn-lg" color="primary">Get Donation</Button>
+                    <Button className="btn-lg" color="primary"  onClick={handleClick}>Get Donation</Button>
                     </CardBody>
                 </Card>
         </div>
             
     )
+
     });
     if (comments == null) {
         return <div></div>
@@ -49,6 +59,13 @@ function RenderComments({comments, addComment, donationId}) {
 }
 
 const DonationDetail = (props) => {
+
+   
+
+
+
+    
+    
     const donation = props.donation
 
     console.log(donation);

@@ -1,15 +1,15 @@
 import * as ActionTypes from './ActionTypes';
 import { DONATIONS } from '../shared/donations'
 
-export const addComment = (donationId, rating, author, comment) => ({
-    type: ActionTypes.ADD_COMMENT,
-    payload: {
-        donationId: donationId,
-        rating: rating,
-        author: author,
-        comment: comment
-    }
-}); 
+// export const addComment = (donationId, rating, author, comment) => ({
+//     type: ActionTypes.ADD_COMMENT,
+//     payload: {
+//         donationId: donationId,
+//         rating: rating,
+//         author: author,
+//         comment: comment
+//     }
+// }); 
 export const fetchDonations = () => (dispatch) => {
 
     dispatch(donationsLoading(true));
