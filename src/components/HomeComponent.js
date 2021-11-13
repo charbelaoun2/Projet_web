@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Jumbotron, Button} from 'reactstrap';
     import { Loading } from './LoadingComponent';
     import { Link } from 'react-router-dom';
+    import { baseUrl } from '../shared/baseUrl';
 
 
 function RenderCard({item, isLoading, errMess}) {
@@ -21,7 +22,7 @@ function RenderCard({item, isLoading, errMess}) {
 
     return(
         <Card className="card-main">
-            <CardImg src={item.image} alt={item.name} className="card-img"/>
+            <CardImg src={baseUrl + item.image} alt={item.name}  className="card-img"/>
             <CardBody className="card-body">
             <CardTitle className='card-title-home1'>
                 <div>

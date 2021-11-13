@@ -4,11 +4,12 @@ import { Card, CardImg, CardBody,CardText, Button, Modal, ModalHeader, ModalBody
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderDonation({donation}) {
     return (
         <Card>
-            <CardImg top src={donation.image} alt={donation.author} style={{ height: '45vh'}}/>
+            <CardImg src={baseUrl + donation.image} alt={donation.author} style={{ height: '45vh'}}/>
             <CardBody>
             <CardTitle>{donation.author}</CardTitle>
             <CardText>{donation.comment}</CardText>
@@ -23,7 +24,7 @@ function RenderComments({comments, addComment, donationId}) {
         return (
             <div className="col-lg-4 col-md-6" style={{ maxWidth: '30rem'}}>
                 <Card>
-                    <CardImg top src={comment.image} alt={comment.author} style={{ height: '45vh'}}/>
+                    <CardImg top  src={baseUrl + comment.image} alt={comment.author} style={{ height: '45vh'}}/>
                     <CardBody>
                     <CardTitle>{comment.author}</CardTitle>
                     <CardText>{comment.comment}</CardText>

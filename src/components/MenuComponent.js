@@ -9,12 +9,13 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Loading } from "./LoadingComponent";
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderMenuItem({ donation }) {
   return (
     <Card>
       <Link to={`/menu/${donation.id}`}>
-        <CardImg className="img-donation" src={donation.image} alt={donation.name}
+        <CardImg className="img-donation" src={baseUrl + donation.image} alt={donation.name}
         />
         <CardImgOverlay>
           <CardTitle className="title-donation">{donation.name}</CardTitle>

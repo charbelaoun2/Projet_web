@@ -11,7 +11,7 @@ import Donate from "./Donate";
 import Contact from "./ContactComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { addComment, fetchDonations } from "../redux/ActionCreators";
+import { addComment, fetchDonations, fetchComments, fetchPromos } from '../redux/ActionCreators';
 
 import { selectUser } from "../redux/userSlice";
 import { useSelector } from "react-redux";
@@ -24,17 +24,20 @@ const mapStateToProps = (state) => {
     leaders: state.leaders,
   };
 };
-const mapDispatchToProps = (dispatch) => ({
-  addComment: (donationId, rating, author, comment) =>
-    dispatch(addComment(donationId, rating, author, comment)),
-  fetchDonations: () => {
-    dispatch(fetchDonations());
-  },
+const mapDispatchToProps = dispatch => ({
+  addComment: (donationId, rating, author, comment) => dispatch(addComment(donationId, rating, author, comment)),
+  fetchDonations: () => { dispatch(fetchDonations())},
+  //resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
+  fetchComments: () => dispatch(fetchComments()),
+  fetchPromos: () => dispatch(fetchPromos())
 });
 
 class Main extends Component {
   componentDidMount() {
     this.props.fetchDonations();
+    this.props.fetchComments();
+    this.props.fetchPromos();
+   
   }
 
   render() {
@@ -47,8 +50,10 @@ class Main extends Component {
             )[0]
           }
           donationsLoading={this.props.donations.isLoading}
-          donationsErrMess={this.props.donations.errMess}
-          promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
+          donationErrMess={this.props.donations.errMess}
+          promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
+          promoLoading={this.props.promotions.isLoading}
+          promoErrMess={this.props.promotions.errMess}
           leader={this.props.leaders.filter((leader) => leader.featured)[0]}
         />
       );
@@ -65,10 +70,8 @@ class Main extends Component {
           }
           isLoading={this.props.donations.isLoading}
           errMess={this.props.donations.errMess}
-          comments={this.props.comments.filter(
-            (comment) =>
-              comment.donationId === parseInt(match.params.donationId, 10)
-          )}
+          comments={this.props.comments.comments.filter((comment) => comment.donationId === parseInt(match.params.donationId,10))}
+          commentsErrMess={this.props.comments.errMess}
           addComment={this.props.addComment}
         />
       );
