@@ -1,0 +1,178 @@
+{
+    "donations": [
+        
+        {
+        "id": 1,
+        "name":"Donation medicale",
+        "image": "images/medical_don.png",
+        "featured": false,
+        "description":"Donner des donations medicales pour les patients en COVID-19 et pour les personnes qui ont plus que 64 ans et pour ceux qui ont besoin"                    
+        },
+        {
+        "id": 2,
+        "name":"Donation educative ",
+        "image": "images/educative_don.png",
+        "featured": false,
+        "description":"Donation educative pour les enfants qui sont dans des situations economiques difficile"
+        },
+        {
+        "id": 3,
+        "name":"Donation alimentaire ",
+        "image": "images/Donation_alim.png",
+        "featured": false,
+        "description":"Donation alimentaires pour les personnes en besoin "
+        },
+        {
+        "id": 4,
+        "name":"Donation vestimentaire ",
+        "image": "images/vesti_don.png",
+        "featured": false,
+        "description":"Donation vestimentaire pour les personnes en besoin"
+        }
+    ],
+    "comments": [
+   
+
+        {
+            "id": 0,
+            "donationId": 0,
+            "rating": 5,
+            "comment": "Differents donations se presentent",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        {
+            "id": 1,
+            "donationId": 0,
+            "rating": 4,
+            "comment": "L'utilisateur peut deposer plusieurs donations",
+            "author": "marc",
+            "date": "2021-1-11"
+        },
+        {
+            "id": 3,
+            "donationId": 0,
+            "rating": 5,
+            "comment": "L'utilisatuer peur beneficier de pluiseurs donations",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        
+        {
+            "id": 4,
+            "donationId": 1,
+            "rating": 4,
+            "image": "images/Pcr.png",
+            "comment": "50-test de PCR-CORONA",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        {
+            "id": 5,
+            "donationId": 1,
+            "rating": 4,
+            "image":"images/dawa.png",
+            "comment": "30-medicaments Panadole",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        {
+            "id": 6,
+            "donationId": 1,
+            "rating": 3,
+            "image":"images/oxygene.png",
+            "comment": "10-medicaments pour les Enfants",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        {
+               "id": 7,
+            "donationId": 1,
+            "rating": 4,
+            "image":"images/masque.png",
+            "comment": "des masques pour se proteger de corona virus",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        
+        {
+            "id": 8,
+            "donationId": 2,
+            "rating": 5,
+            "image":"images/bourse.png",
+            "comment": "Bourse-scholaire pour 2 enfants",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        {
+            "id": 9,
+            "donationId": 2,
+            "rating": 5,
+            "image":"images/boitescholaire.png",
+            "comment": "Boite de fourniture scholaire pour les enfants d'une famille",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        {
+            "id": 10,
+            "donationId": 2,
+            "rating": 5,
+            "image":"images/Livredonation.png",
+            "comment": "Livre scholaires",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        },
+        
+        {
+            "id": 11,
+            "donationId": 3,
+            "image":"images/boitealim.png",
+            "rating": 5,
+            "comment": "Boite alimentaire pour une famille",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+            
+        },
+        
+        
+        {
+            "id": 12,
+            "donationId": 4,
+            "image":"images/boitevest.png",
+            "rating": 5,
+            "comment": "Boite d'habits pour une famille",
+            "author": "John Lemon",
+            "date": "2021-1-11"
+        }
+        
+    
+      ],
+    
+    "promotions": [
+        {
+          "id": 0,
+          "name": "Marcus Morris",
+          "image": "images/hrhome.png",
+          
+          "featured": true,
+          "description": "Possibiliter d offrire des donations de differentes categories",
+          "post": "HR",
+          "phone": "+961 81 019 381",
+          "email": "operationMC@hotmail.com"
+        }
+      ],
+      "leaders": [
+        {
+          "id": 0,
+          "name": "Jean Paul Pichon",
+          "image": "images/ceohome.png",
+          
+          "featured": true,
+          "description": "Charbel  & Marc Nsier the leader of the online organisation",
+          "post": "CEO of the organisation",
+          "phone": "+ 961 76 592 837",
+          "email": "operationMC@hotmail.com"
+        }
+      ]
+    
+}
