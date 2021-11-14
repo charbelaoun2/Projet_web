@@ -4,3 +4,32 @@
   justify-content: space-around;
   align-items: center;
 }
+
+.ct-series-c .ct-slice-pie, .ct-series-c .ct-area {
+  fill: #FFA534;
+}
+
+.ct-series-a .ct-slice-pie, .ct-series-a .ct-area {
+  fill: #1DC7EA;
+}
+
+.ct-series-b .ct-slice-pie, .ct-series-b .ct-area {
+  fill: #FB404B;
+}
+
+.ct-series-d .ct-slice-pie, .ct-series-d .ct-area {
+  fill: #1e90ff;
+}
+
+.admin-dashboard-title {
+  margin: 10px;
+  color: #1e90ff !important;
+  font-weight: bold;
+  border-left: 5px solid #1e90ff;
+  letter-spacing: 2px;
+  padding-left: 10px;
+}
+
+.data-table{
+  padding: 50px;
+}

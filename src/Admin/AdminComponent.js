@@ -8,9 +8,15 @@ import {
   XAxis,
   YAxis,
   Legend,
-  CartesianGrid,
-  Bar,
+  CartesianGrid
 } from "recharts";
+
+import { Bar } from "react-chartjs-2";
+
+import DashBoard from './DashBoard';
+
+import DataTable from './DataTable';
+
 
 const Admin = () => {
   const data = [
@@ -21,47 +27,66 @@ const Admin = () => {
   ];
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Statistics</h1>
-      <div className="Admin">
-        <PieChart width={600} height={600}>
-          <Pie
-            dataKey="users"
-            isAnimationActive={false}
-            data={data}
-            cx={210}
-            cy={300}
-            outerRadius={180}
-            fill="#1E90FF"
-            label
-          />
-          <Tooltip />
-        </PieChart>
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 80,
-            bottom: 5,
-          }}
-          barSize={20}
-        >
-          <XAxis
-            dataKey="name"
-            scale="point"
-            padding={{ left: 20, right: 10 }}
-          />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="users" fill="#1E90FF" background={{ fill: "#eee" }} />
-        </BarChart>
+    <div>
+      <div className="container">
+      <h1 className="admin-dashboard-title"> Admin Dashboard</h1>
+        <div className="row" style={{ textAlign: "center" }}>
+          <div className="col-lg-6">
+                <Bar
+                data={{
+                  // Name of the variables on x-axies for each bar
+                  labels: ["Donation Alimentaire", "Donation educative", "Donation Medical", "Donation Vestimentaire"],
+                  datasets: [
+                    {
+                      // Label for bars
+                      label: "total count/value",
+                      // Data or value of your each variable
+                      data: [5, 10, 7, 2],
+                      // Color of each bar
+                      backgroundColor: ["aqua", "green", "red", "yellow"],
+                      // Border color of each bar
+                      borderColor: ["aqua", "green", "red", "yellow"],
+                      borderWidth: 0.5,
+                    },
+                  ],
+                }}
+                // Height of graph
+                height={400}
+                options={{
+                  maintainAspectRatio: false,
+                  scales: {
+                    yAxes: [
+                      {
+                        ticks: {
+                          // The y-axis value will start from zero
+                          beginAtZero: true,
+                        },
+                      },
+                    ],
+                  },
+                  legend: {
+                    labels: {
+                      fontSize: 15,
+                    },
+                  },
+                }}
+              />
+          </div>
+          <div className="col-lg-6">
+              <DashBoard/>
+          </div>
+        </div>
+          
       </div>
+      
+
+      <div className="container data-table">
+      <DataTable />
+      </div>
+     
+
     </div>
+    
   );
 };
 
