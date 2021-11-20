@@ -11,7 +11,7 @@ import Donate from "./Donate";
 import Contact from "./ContactComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { addComment, fetchDonations, fetchComments } from '../redux/ActionCreators';
+import { addComment, fetchDonations, fetchComments ,postFeedback } from '../redux/ActionCreators';
 
 import { selectUser } from "../redux/userSlice";
 import { useSelector } from "react-redux";
@@ -29,6 +29,7 @@ const mapDispatchToProps = dispatch => ({
   fetchDonations: () => { dispatch(fetchDonations())},
   //resetFeedbackForm: () => { dispatch(actions.reset('feedback'))},
   fetchComments: () => dispatch(fetchComments()),
+  postFeedback: (feedback) => dispatch(postFeedback(feedback))
  
 });
 
@@ -88,7 +89,8 @@ class Main extends Component {
               component={() => <Menu donations={this.props.donations} />}
             />
             <Route path="/menu/:donationId" component={DonationWithId} />
-            <Route exact path="/contactus" component={Contact} />
+            <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedback={this.props.postFeedback}/>} />
+            
 
             <Route exact path="/Donate" component={Donate} />
             <Route path="/Admin" component={Admin} />
