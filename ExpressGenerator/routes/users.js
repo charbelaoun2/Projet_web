@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', (req, res, next) => {
-  res.json({name:"charbel"});
+  res.json({name:"charbelmarc"});
 });
 
 module.exports = router;
