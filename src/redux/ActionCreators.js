@@ -15,8 +15,22 @@ export const fetchDonations = () => (dispatch) => {
     dispatch(donationsLoading(true));
 
     return fetch(baseUrl + 'donations')
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+      })
     .then(response => response.json())
-    .then(donations => dispatch(addDonations(donations)));
+    .then(donations => dispatch(addDonations(donations)))
+    .catch(error => dispatch(donationsFailed(error.message)));
 }
 
 export const donationsLoading = () => ({
@@ -36,8 +50,22 @@ export const addDonations = (donations) => ({
 
 export const fetchComments = () => (dispatch) => {    
     return fetch(baseUrl + 'comments')
+    .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          var error = new Error('Error ' + response.status + ': ' + response.statusText);
+          error.response = response;
+          throw error;
+        }
+      },
+      error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+      })
     .then(response => response.json())
-    .then(comments => dispatch(addComments(comments)));
+    .then(comments => dispatch(addComments(comments)))
+    .catch(error => dispatch(commentsFailed(error.message)));
 };
 
 export const commentsFailed = (errmess) => ({
