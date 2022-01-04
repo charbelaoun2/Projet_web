@@ -12,6 +12,7 @@ import Contact from "./ContactComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchDonations } from "../redux/ActionCreators";
+import { postComment,deleteComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders, loginUser, logoutUser, fetchFavorites, postFavorite, deleteFavorite } from '../redux/ActionCreators';
 
 import { selectUser } from "../redux/userSlice";
 import { useSelector } from "react-redux";
@@ -22,64 +23,88 @@ const mapStateToProps = (state) => {
     comments: state.comments,
     promotions: state.promotions,
     leaders: state.leaders,
+    auth: state.auth
   };
 };
-const mapDispatchToProps = (dispatch) => ({
-  // addComment: (donationId, rating, author, comment) =>
-  //   dispatch(addComment(donationId, rating, author, comment)),
-  fetchDonations: () => {
-    dispatch(fetchDonations());
-  },
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   postComment: (donationId, rating, comment) => dispatch(postComment(donationId, rating, comment)),
+//   fetchDonations: () => {dispatch(fetchDonations())},
+  
+//   fetchComments: () => {dispatch(fetchComments())},
+  
+//   loginUser: (creds) => dispatch(loginUser(creds)),
+//   logoutUser: () => dispatch(logoutUser()),
+  
+// });
 
+const mapDispatchToProps = (dispatch) => ({
+  
+  postComment: (donationId, rating,comment,file) => dispatch(postComment(donationId, rating,comment,file)),
+  deleteComment: (donationId, rating,comment,file) => dispatch(deleteComment(donationId, rating,comment,file)),
+  fetchDonations: () => {dispatch(fetchDonations())},
+  
+  fetchComments: () => {dispatch(fetchComments())},
+  fetchPromos: () => {dispatch(fetchPromos())},
+  fetchLeaders: () => dispatch(fetchLeaders()),
+  
+  loginUser: (creds) => dispatch(loginUser(creds)),
+  logoutUser: () => dispatch(logoutUser()),
+ 
+});
 class Main extends Component {
   componentDidMount() {
     this.props.fetchDonations();
+    this.props.fetchComments();
+    this.props.fetchPromos();
+    this.props.fetchLeaders();
+    
   }
 
   render() {
-    const HomePage = () => {
-      return (
-        <Home
-          donation={
-            this.props.donations.donations.filter(
-              (donation) => donation.featured
-            )[0]
-          }
-          donationsLoading={this.props.donations.isLoading}
-          donationsErrMess={this.props.donations.errMess}
-          promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
-          leader={this.props.leaders.filter((leader) => leader.featured)[0]}
-        />
-      );
-    };
+    // const HomePage = () => {
+      
+    //     <Home 
+    //     promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
+       
+    //     leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]}
+    //     leaderLoading={this.props.leaders.isLoading}
+    //     leaderErrMess={this.props.leaders.errMess}
+        
+        
+    //   />
+      
+      
+    // };
 
     const DonationWithId = ({ match }) => {
       return (
-        <DonationDetail
-          donation={
-            this.props.donations.donations.filter(
-              (donation) =>
-                donation.id === parseInt(match.params.donationId, 10)
-            )[0]
-          }
-          isLoading={this.props.donations.isLoading}
-          errMess={this.props.donations.errMess}
-          comments={this.props.comments.filter(
-            (comment) =>
-              comment.donationId === parseInt(match.params.donationId, 10)
-          )}
-          //addComment={this.props.addComment}
+        //this.props.auth.isAuthenticated
+        //?
+        <DonationDetail donation={this.props.donations.donations.filter((donation) => donation._id === match.params.donationId)[0]}
+        isLoading={this.props.donations.isLoading}
+        errMess={this.props.donations.errMess}
+        comments={this.props.comments.comments.filter((comment) => comment.donation === match.params.donationId)}
+        commentsErrMess={this.props.comments.errMess}
+        postComment={this.props.postComment}
+        deleteComment={this.props.deleteComment}
+
+        
         />
       );
     };
+   
+  
 
+    
     return (
       <div>
-        <Header />
+        <Header auth={this.props.auth} 
+          loginUser={this.props.loginUser} 
+          logoutUser={this.props.logoutUser} 
+           />
         <div>
           <Switch>
-            <Route path="/home" component={HomePage} />
+            <Route path="/home" component={() => <Home leaders={this.props.leaders} />} />
             <Route exact path="/aboutUs" component={AboutUs} />
             <Route
               exact

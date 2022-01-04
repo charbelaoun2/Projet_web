@@ -40,7 +40,7 @@ body {
 #### NAVBAR
 -------------------------------------------------- */
 /* .navbar-light {
-  background-color: white;
+  background-color: rgb(31, 103, 211);
   }
 
 .nav-link{
@@ -52,6 +52,58 @@ body {
   color: #1E90FF !important;
 } */
 
+/* .navo{
+  background-color: black;
+}
+
+.nav-linkk{
+  color: #000000;
+  background-color: #000000;
+} */
+.ss{
+  padding: 10px;
+}
+.navbar-dark {
+  background: linear-gradient(90deg, #1e90ff 0%, rgb(26,23,23) 100%);
+}
+
+.nav-logo{
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.nav-link{
+  font-size: 20px;
+}
+
+.login{
+  float: right;
+ 
+  /* background-color: white; */
+}
+
+.page-enter {
+  opacity: 0.01;
+  transform: translateX(-100%);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 300ms ease-in;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.page-exit-active {
+  opacity: 0.01;
+  transform: translateX(100%);
+  transition: all 300ms ease-out;
+}
 /* ---------------------------------------------------
 #### jumbotron
 -------------------------------------------------- */
@@ -127,11 +179,14 @@ address {
   font-weight: bold;
   font-size: x-large;
   border-bottom: 1px solid lightgray;
+  text-decoration: none;
 }
 
 .card-title-home2 {
   font-size: smaller;
   opacity: 0.5;
+  text-decoration: none;
+  color: #000000 !important;
 }
 
 .card-info {
@@ -164,6 +219,10 @@ address {
 /* ---------------------------------------------------
 #### card
 -------------------------------------------------- */
+/* .card-main-main{
+  
+} */
+
 .card-main {
   display: flex;
   align-items: space-between;
@@ -172,14 +231,14 @@ address {
 }
 
 .card-body {
-  padding: 20px;
+  padding: 200px;
 }
 
 .card-img {
   height: auto;
-  max-height: 550px;
+  max-height: 700px;
   width: auto;
-  max-width: 550px;
+  max-width: 700px;
 }
 
 /* ---------------------------------------------------
@@ -315,3 +374,4 @@ address {
   font-weight: 500;
   font-size: larger;
 }
+

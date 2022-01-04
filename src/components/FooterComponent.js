@@ -68,7 +68,7 @@ function Footer(props) {
                                 <li><Link to='/home'><i className="fa fa-home"> Home</i></Link></li>
                                 <li><Link to='/aboutus'><i className="fa fa-info"> About Us</i></Link></li>
                                 <li><Link to='/menu'><i className="fa fa-bars"> Donations</i></Link></li>
-                                <li><Link to='/contactus'><i className="fa fa-phone"> Contact Us</i></Link></li>
+                               
                             </ul>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ function Footer(props) {
                             <li><Link to='/home'><i> Home</i></Link></li>
                                 <li><Link to='/aboutus'><i> About Us</i></Link></li>
                                 <li><Link to='/menu'><i> Donations</i></Link></li>
-                                <li><Link to='/contactus'><i> Contact Us</i></Link></li>
+                               
                             </ul>
                         </div>
                     </div>
