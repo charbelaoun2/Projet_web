@@ -11,11 +11,15 @@ class Header extends Component {
         super(props);
         this.state = {
             isNavOpen: false,
-            isModalOpen: false
+            isModalOpen: false,
+            isModalOpen1:false,
+        
         };
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
+        this.toggleModal1 = this.toggleModal1.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.handlesignup = this.handlesignup.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     }
 
@@ -30,10 +34,22 @@ class Header extends Component {
             isModalOpen: !this.state.isModalOpen
         });
     }
+    toggleModal1() {
+        this.setState({
+            isModalOpen1: !this.state.isModalOpen1
+        });
+    }
 
     handleLogin(event) {
         this.toggleModal();
         this.props.loginUser({username: this.username.value, password: this.password.value});
+        event.preventDefault();
+
+    }
+    handlesignup(event) {
+        this.toggleModal1();
+        this.props.signupUser({firstname:this.firstname.value,lastname:this.lastname.value,email:this.email.value,tel:this.tel.value,
+            username: this.username.value, password: this.password.value});
         event.preventDefault();
 
     }
@@ -44,7 +60,7 @@ class Header extends Component {
 
     render() {
         return(
-            <React.Fragment>
+            <React.Fragment  className=" navbar-inverse navbar-expand react-freagment">
                 <Navbar dark expand="md">
                     <div className="container ss">
                         <NavbarToggler onClick={this.toggleNav} />
@@ -70,11 +86,6 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                
-                                {/* <NavItem>
-                                    <NavLink className="nav-link" to="/contactus">
-                                        <span className="fa fa-address-card fa-lg"></span> Contact Us
-                                    </NavLink>
-                                </NavItem> */}
                             </Nav>
                             <Nav className="login">
                                 <NavItem >
@@ -88,7 +99,7 @@ class Header extends Component {
                                         </Button>
                                         :
                                         <div>
-                                        <div className="navbar-text mr-3">{this.props.auth.user.username}</div>
+                                       
                                         <Button outline onClick={this.handleLogout}>
                                             <span className="fa fa-sign-out fa-lg"></span> Logout
                                             {this.props.auth.isFetching ?
@@ -96,6 +107,25 @@ class Header extends Component {
                                                 : null
                                             }
                                         </Button>
+                                        </div>
+                                    }
+
+                                </NavItem>
+                            </Nav>
+                            <Nav className="register">
+                                <NavItem >
+                                    { !this.props.auth.isAuthenticated ?
+                                        <Button outline onClick={this.toggleModal1} >
+                                            <span className="fa fa-sign-in fa-lg"></span> Register
+                                            {this.props.auth.isFetching ?
+                                                <span className="fa fa-spinner fa-pulse fa-fw"></span>
+                                                : null
+                                            }
+                                        </Button>
+                                        :
+                                        <div>
+                                       
+                                       
                                         </div>
                                     }
 
@@ -127,10 +157,57 @@ class Header extends Component {
                                 </Label>
                             </FormGroup>
                             <Button type="submit" value="submit" color="primary">Login</Button>
+                           
                         </Form>
                     </ModalBody>
                 </Modal>
+                <Modal isOpen={this.state.isModalOpen1} toggle={this.toggleModal1}>
+                    <ModalHeader toggle={this.toggleModal1}>Register</ModalHeader>
+                    <ModalBody>
+                        <Form onSubmit={this.handlesignup}>
+                        <FormGroup>
+                                <Label htmlFor="firstname">firstname</Label>
+                                <Input type="text" id="firstname" name="firstname"
+                                    innerRef={(input) => this.firstname = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="lastname">lastname</Label>
+                                <Input type="text" id="lastname" name="lastname"
+                                    innerRef={(input) => this.lastname = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="email">email</Label>
+                                <Input type="email" id="email" name="email"
+                                    innerRef={(input) => this.email = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="tel">tel</Label>
+                                <Input type="number" id="tel" name="tel"
+                                    innerRef={(input) => this.tel = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="username">Username</Label>
+                                <Input type="text" id="username" name="username"
+                                    innerRef={(input) => this.username = input} />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label htmlFor="password">Password</Label>
+                                <Input type="password" id="password" name="password"
+                                    innerRef={(input) => this.password = input}  />
+                            </FormGroup>
+                           
+                            <Button type="submit" value="submit" color="primary">Register</Button>
+                        </Form>
+                    </ModalBody>
+                </Modal>
+                
+
+
             </React.Fragment>
+            
+
+
+            
         );
     }
 }

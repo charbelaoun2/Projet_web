@@ -75,9 +75,9 @@ function Footer(props) {
                     <div class="col-xl-4 col-lg-4 col-md-6 mb-50">
                         <div class="footer-widget">
                             <div class="footer-widget-heading">
-                                <h3>Donate</h3>
+                                <h3>Donations</h3>
                             </div>
-                            <Link to="/Donate" className="btn btn-primary">Donate</Link>
+                            <Link to="/Menu" className="btn btn-primary">Donations</Link>
                         </div>
                     </div>
                 </div>

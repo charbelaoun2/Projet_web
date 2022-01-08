@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import {Container, Card, CardImg, CardImgOverlay, CardTitle, Button} from 'reactstrap'
+import {Container, CardImg, Button} from 'reactstrap'
 
 import { Link } from 'react-router-dom';
 
@@ -48,26 +48,7 @@ class AboutUs extends Component{
                     </div>
                 </Container>
             
-                    <Container>
-                        <div className="row row-head">
-                            <div className="col-md-3 col-6 text-center">
-                                <span className="numbers" >1200</span>
-                                <p className="text-num">Users</p>
-                            </div>
-                            <div className="col-md-3 col-6 text-center">
-                                <span className="numbers" >64</span>
-                                <p class="text-num">Donators</p>
-                            </div>
-                            <div class="col-md-3 col-6 text-center">
-                                <span class="numbers" >50</span>
-                                <p class="text-num">Benefitors</p>
-                            </div>
-                            <div class="col-md-3 col-6 text-center">
-                                <span class="numbers">12</span>
-                                <p class="text-num">Category</p>
-                            </div>
-                        </div>
-                    </Container>
+                   
             </div>
 
             <Container>
@@ -125,7 +106,7 @@ class AboutUs extends Component{
                         <div className="col-6">
                             <h1>{this.state.header}</h1>
                             <p>{this.state.msg}</p>
-                            <Link to="/Donate" className="btn btn-primary btn-aboutus">Donate</Link>
+                            <Link to="/Menu" className="btn btn-primary btn-aboutus">Donations</Link>
                         </div>
 
                         <div className="col-6">

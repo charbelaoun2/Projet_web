@@ -1,69 +1,27 @@
 import * as ActionTypes from './ActionTypes';
 import { baseUrl } from '../shared/baseUrl';
 
-export const addComment = (comment) => ({
-    type: ActionTypes.ADD_COMMENT,
-    payload: comment
+export const addOffre = (offre) => ({
+    type: ActionTypes.ADD_OFFRE,
+    payload: offre
 });
 
-// export const postComment = (donationId, description, image,typedonation) => (dispatch) => {
 
-//     const newComment = {
-//         donation: donationId,
-//         description: description,
-//         image:image,
-//         typedonation:typedonation,
-        
-        
-//     }
-//     console.log('Comment ', newComment);
+export const postOffre = (donationId,rating, comment,file) => (dispatch) => {
 
-//     const bearer = 'Bearer ' + localStorage.getItem('token');
-
-//     return fetch(baseUrl + 'offres', {
-//         method: 'POST',
-//         body: JSON.stringify(newComment),
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': bearer
-//         },
-//         credentials: 'same-origin'
-//     })
-//     .then(response => {
-//         if (response.ok) {
-//             return response;
-//         }
-//         else {
-//             var error = new Error('Error ' + response.status + ': ' + response.statusText);
-//             error.response = response;
-//             throw error;
-//         }
-//     },
-//     error => {
-//         var errmess = new Error(error.message);
-//         throw errmess;
-//     })
-//     .then(response => response.json())
-//     .then(response => dispatch(addComment(response)))
-//     .catch(error => { console.log('Post comments ', error.message);
-//         alert('Your comment could not be posted\nError: '+ error.message); })
-// }
-
-export const deleteComment=(donationId,rating,comment,file)=> (dispatch) => {
-
-    const deleteComment = {
+    const newOffre = {
         donation: donationId,
         rating:rating,
         comment:comment,
         file:file,
     }
-    console.log('Comment ', deleteComment);
+    console.log('offre ', newOffre);
 
     const bearer = 'Bearer ' + localStorage.getItem('token');
-    // hayde eli ma 3am tozbat ----- seme3kon --ok
-    return fetch(baseUrl + 'comments', {
-        method: 'DELETE',
-        body: JSON.stringify(deleteComment),
+
+    return fetch(baseUrl + 'offres', {
+        method: 'POST',
+        body: JSON.stringify(newOffre),
         headers: {
             'Content-Type': 'application/json',
             'Authorization': bearer
@@ -73,8 +31,6 @@ export const deleteComment=(donationId,rating,comment,file)=> (dispatch) => {
     .then(response => {
         if (response.ok) {
             return response;
-            // ok hon badna nchil el item eli 3melnelo delete men el store
-            //3emlin chi action ta nchil el item eli 3melnenlo delete men el store?
         }
         else {
             var error = new Error('Error ' + response.status + ': ' + response.statusText);
@@ -87,27 +43,24 @@ export const deleteComment=(donationId,rating,comment,file)=> (dispatch) => {
         throw errmess;
     })
     .then(response => response.json())
-    .then(response => dispatch(deleteComment(response)))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your comment could not be posted\nError: '+ error.message); })
+    .then(response => dispatch(addOffre(response)))
+    .catch(error => { console.log('Post offres ', error.message);
+        alert('Your offre could not be posted\nError: '+ error.message); })
 }
 
+export const deleteOffre = (offreId) => (dispatch) => {
 
-export const postComment = (donationId,rating, comment,file) => (dispatch) => {
-
-    const newComment = {
-        donation: donationId,
-        rating:rating,
-        comment:comment,
-        file:file,
+    const deleteOffre = {
+       offre:offreId,
+       
     }
-    console.log('Comment ', newComment);
+    console.log('offre ', deleteOffre);
 
     const bearer = 'Bearer ' + localStorage.getItem('token');
 
-    return fetch(baseUrl + 'comments', {
-        method: 'POST',
-        body: JSON.stringify(newComment),
+    return fetch(`http://localhost:3000/offres/${offreId}`, {
+        method: 'DELETE',
+        body: JSON.stringify(deleteOffre),
         headers: {
             'Content-Type': 'application/json',
             'Authorization': bearer
@@ -129,9 +82,9 @@ export const postComment = (donationId,rating, comment,file) => (dispatch) => {
         throw errmess;
     })
     .then(response => response.json())
-    .then(response => dispatch(deleteComment(response)))
-    .catch(error => { console.log('Post comments ', error.message);
-        alert('Your comment could not be posted\nError: '+ error.message); })
+    .then(response => dispatch(deleteOffre(response)))
+    .catch(error => { console.log('Delete offres ', error.message);
+        alert('Your offre is deleted'); })
 }
 export const fetchDonations = () => (dispatch) => {
     dispatch(donationsLoading());
@@ -156,6 +109,8 @@ export const fetchDonations = () => (dispatch) => {
         .catch(error => dispatch(donationsFailed(error.message)));
 }
 
+
+
 export const donationsLoading = () => ({
     type: ActionTypes.DONATIONS_LOADING
 });
@@ -170,8 +125,8 @@ export const addDonations = (donations) => ({
     payload: donations
 });
 
-export const fetchComments = () => (dispatch) => {
-    return fetch(baseUrl + 'comments')
+export const fetchoffres = () => (dispatch) => {
+    return fetch(baseUrl + 'offres')
         .then(response => {
             if (response.ok) {
                 return response;
@@ -187,61 +142,27 @@ export const fetchComments = () => (dispatch) => {
             throw errmess;
         })
         .then(response => response.json())
-        .then(comments => dispatch(addComments(comments)))
-        .catch(error => dispatch(commentsFailed(error.message)));
+        .then(offres => dispatch(addOffres(offres)))
+        .catch(error => dispatch(offresFailed(error.message)));
 }
 
-export const commentsFailed = (errmess) => ({
-    type: ActionTypes.COMMENTS_FAILED,
+export const offresFailed = (errmess) => ({
+    type: ActionTypes.OFFRES_FAILED,
     payload: errmess
 });
 
-export const addComments = (comments) => ({
-    type: ActionTypes.ADD_COMMENTS,
-    payload: comments
+export const addOffres = (offres) => ({
+    type: ActionTypes.ADD_OFFRES,
+    payload: offres
+});
+export const deleteOffres = (offres) => ({
+    type: ActionTypes.DELETE_OFFRES,
+    payload: offres
 });
 
-export const deleteComments = (comments) => ({
-    type: ActionTypes.DELETE_COMMENTS,
-    payload: comments
-});
 
-export const fetchPromos = () => (dispatch) => {
-    dispatch(promosLoading());
 
-    return fetch(baseUrl + 'promotions')
-        .then(response => {
-            if (response.ok) {
-                return response;
-            }
-            else {
-                var error = new Error('Error ' + response.status + ': ' + response.statusText);
-                error.response = response;
-                throw error;
-            }
-        },
-        error => {
-            var errmess = new Error(error.message);
-            throw errmess;
-        })
-        .then(response => response.json())
-        .then(promos => dispatch(addPromos(promos)))
-        .catch(error => dispatch(promosFailed(error.message)));
-}
 
-export const promosLoading = () => ({
-    type: ActionTypes.PROMOS_LOADING
-});
-
-export const promosFailed = (errmess) => ({
-    type: ActionTypes.PROMOS_FAILED,
-    payload: errmess
-});
-
-export const addPromos = (promos) => ({
-    type: ActionTypes.ADD_PROMOS,
-    payload: promos
-});
 
 export const fetchLeaders = () => (dispatch) => {
     
@@ -343,6 +264,69 @@ export const loginUser = (creds) => (dispatch) => {
         }
     })
     .catch(error => dispatch(loginError(error.message)))
+};
+
+export const requestsignup = (response) => {
+    return {
+        type: ActionTypes.SIGNUP_REQUEST,
+        token: response.token
+    }
+}
+
+export const receiveSignup = (response) => {
+    return {
+        type: ActionTypes.SIGNUP_SUCCESS,
+        token: response.token
+    }
+}
+
+export const SignupError = (message) => {
+    return {
+        type: ActionTypes.SIGNUP_FAILURE,
+        message
+    }
+}
+
+export const signupUser = (creds) => (dispatch) => {
+    
+    dispatch(requestsignup(creds))
+
+    return fetch(baseUrl + 'users/signup', {
+        method: 'POST',
+        headers: { 
+            'Content-Type':'application/json' 
+        },
+        body: JSON.stringify(creds)
+    })
+    .then(response => {
+            if (response.ok) {
+                return response;
+            } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            throw error;
+        })
+    .then(response => response.json())
+    .then(response => {
+        if (response.success) {
+           
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('creds', JSON.stringify(creds));
+           
+           
+            dispatch(receiveSignup(response));
+        }
+        else {
+            var error = new Error('Error ' + response.status);
+            error.response = response;
+            throw error;
+        }
+    })
+    .catch(error => dispatch(SignupError(error.message)))
 };
 
 export const requestLogout = () => {

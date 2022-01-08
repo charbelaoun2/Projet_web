@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
-import { Breadcrumb, BreadcrumbItem, Button, Row, Col, Label,Container  } from 'reactstrap';
+import { Button, Row, Col, Label,Container  } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
 import './Donate.css'
 
 
+
 class Donate extends Component {
+    
     constructor(props) {
         super(props);
 
-       
+       this.donations = props.donations
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
+        this.imagePath = ""
     }
 
     handleBlur = (field) => (evt) => {
@@ -37,6 +41,40 @@ class Donate extends Component {
         alert('Current State is: ' + JSON.stringify(values));
         // event.preventDefault();
     }
+    handleDonation(donation){
+        console.log(donation._id)
+
+    }
+     handleUpload(e){
+        const bearer = 'Bearer ' + localStorage.getItem('token');
+        e.preventDefault();
+        const file = e.target.files[0];
+    
+          let formData = new FormData();
+          formData.append('files', file);
+          
+    
+         
+           fetch(baseUrl + 'imageUpload', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                          
+                        'Authorization': bearer
+                    },
+                    credentials: 'same-origin'
+                })
+                .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+    })
+    .catch(error => this.setState({error, isLoading: false}));
+}
+  
+
+      
+    
+    
 
     render() {
         const required = (val) => val && val.length;
@@ -87,10 +125,16 @@ class Donate extends Component {
                                     <Col md={10}>
                                     <Control.select model=".contactType" name="contactType"
                                             className="form-control">
-                                            <option>Donation Alimentaire</option>
-                                            <option>Donation educative</option>
-                                            <option>Donation Vestimentaire</option>
-                                            <option>Donation Medicale</option>
+                        
+                                                {this.donations.map((donation)=> {
+                                                    console.log(donation._id)
+                                                   return  <option >{donation.name}</option>
+
+                                                }
+                                                
+                                                )}
+                                              
+                                          
                                         </Control.select>
                                         
                                         
@@ -99,9 +143,9 @@ class Donate extends Component {
                                 <Row className="form-group">
                                 <Label htmlFor="email" md={2}>Photo de la Donation</Label>
                                 <Col md={10}>
-                                <div onSubmit={this.onFormsubmit}>
+                                <div >
 
-                                    <input type="file" name="file" onChange={(e) => this.onChange(e)} ></input>
+                                    <input type="file" name="files" onChange={(e) => this.handleUpload(e)} ></input>
                                 </div>
                                 </Col>
                                 </Row>
@@ -117,7 +161,7 @@ class Donate extends Component {
                                 
                                 <Row className="form-group">
                                     <Col md={{size:10, offset: 2}}>
-                                        <Button type="submit" color="primary">
+                                        <Button type="submit" color="primary" onClick={()=>this.sendComments}>
                                         Donate
                                         </Button>
                                     </Col>
