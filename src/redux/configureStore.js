@@ -6,13 +6,11 @@ import { Donations } from './donations';
 import { Offres } from './offres';
 import { Leaders } from './leaders';
 import { Auth } from './auth';
-import {Users} from './users';
 
 export const ConfigureStore = () => {
     const store = createStore(
         combineReducers({
             donations: Donations,
-            users:Users,
             offres: Offres,
             leaders: Leaders,
             auth: Auth,

@@ -12,14 +12,18 @@ class Header extends Component {
         this.state = {
             isNavOpen: false,
             isModalOpen: false,
-            isModalOpen1:false,
+            isModalOpen1: false,
+          
         
         };
         this.toggleNav = this.toggleNav.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
         this.toggleModal1 = this.toggleModal1.bind(this);
+      
         this.handleLogin = this.handleLogin.bind(this);
-        this.handlesignup = this.handlesignup.bind(this);
+        this.handleSignup = this.handleSignup.bind(this);
+
+       
         this.handleLogout = this.handleLogout.bind(this);
     }
 
@@ -39,6 +43,7 @@ class Header extends Component {
             isModalOpen1: !this.state.isModalOpen1
         });
     }
+  
 
     handleLogin(event) {
         this.toggleModal();
@@ -46,13 +51,14 @@ class Header extends Component {
         event.preventDefault();
 
     }
-    handlesignup(event) {
+    handleSignup(event) {
         this.toggleModal1();
-        this.props.signupUser({firstname:this.firstname.value,lastname:this.lastname.value,email:this.email.value,tel:this.tel.value,
-            username: this.username.value, password: this.password.value});
+        this.props.signupUser({firstname:this.firstname.value,lastname:this.lastname.value,email:this.email.value,tel:this.tel.value,username: this.username.value, password: this.password.value});
         event.preventDefault();
 
     }
+   
+    
 
     handleLogout() {
         this.props.logoutUser();
@@ -112,7 +118,7 @@ class Header extends Component {
 
                                 </NavItem>
                             </Nav>
-                            <Nav className="register">
+                            <Nav className="signup">
                                 <NavItem >
                                     { !this.props.auth.isAuthenticated ?
                                         <Button outline onClick={this.toggleModal1} >
@@ -125,12 +131,13 @@ class Header extends Component {
                                         :
                                         <div>
                                        
-                                       
+                                        
                                         </div>
                                     }
 
                                 </NavItem>
                             </Nav>
+                            
                         </Collapse>
                     </div>
                 </Navbar>
@@ -164,7 +171,7 @@ class Header extends Component {
                 <Modal isOpen={this.state.isModalOpen1} toggle={this.toggleModal1}>
                     <ModalHeader toggle={this.toggleModal1}>Register</ModalHeader>
                     <ModalBody>
-                        <Form onSubmit={this.handlesignup}>
+                        <Form onSubmit={this.handleSignup}>
                         <FormGroup>
                                 <Label htmlFor="firstname">firstname</Label>
                                 <Input type="text" id="firstname" name="firstname"
@@ -197,10 +204,11 @@ class Header extends Component {
                             </FormGroup>
                            
                             <Button type="submit" value="submit" color="primary">Register</Button>
+                        
+                           
                         </Form>
                     </ModalBody>
                 </Modal>
-                
 
 
             </React.Fragment>

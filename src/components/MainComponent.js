@@ -4,13 +4,13 @@ import DonationDetail from "./DonationDetailComponent";
 import AboutUs from "./AboutUsComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import Admin from './AdminComponent'
+import Admin from '../Admin/AdminComponent'
 import Home from "./HomeComponent";
 import Donate from "./Donate";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchDonations } from "../redux/ActionCreators";
-import {  postOffre,deleteOffre, fetchoffres,fetchusers, fetchLeaders, loginUser,signupUser, logoutUser} from '../redux/ActionCreators';
+import {  postOffre,deleteOffre, fetchoffres, fetchLeaders,signupUser, loginUser, logoutUser} from '../redux/ActionCreators';
 
 
 const mapStateToProps = (state) => {
@@ -18,7 +18,6 @@ const mapStateToProps = (state) => {
     donations: state.donations,
     offres: state.offres,
     leaders: state.leaders,
-    users:state.users,
     auth: state.auth
   };
 };
@@ -28,13 +27,13 @@ const mapDispatchToProps = (dispatch) => ({
   postOffre: (donationId, rating,comment,file) => dispatch( postOffre(donationId, rating,comment,file)),
   deleteOffre: (offreId) => dispatch(deleteOffre(offreId)),
   fetchDonations: () => {dispatch(fetchDonations())},
-  fetchusers: () => {dispatch(fetchusers())},
   
   fetchoffres: () => {dispatch(fetchoffres())},
   fetchLeaders: () => dispatch(fetchLeaders()),
   
   loginUser: (creds) => dispatch(loginUser(creds)),
-  signupUser:(creds)=> dispatch(signupUser(creds)),
+  signupUser: (creds) => dispatch(signupUser(creds)),
+
   logoutUser: () => dispatch(logoutUser()),
  
 });
@@ -43,7 +42,6 @@ class Main extends Component {
     this.props.fetchDonations();
     this.props.fetchoffres();
     this.props.fetchLeaders();
-    this.props.fetchusers();
     
   }
 
@@ -74,7 +72,7 @@ class Main extends Component {
       <div>
         <Header auth={this.props.auth} 
           loginUser={this.props.loginUser} 
-          signupUser={this.props.signUpuser}
+          signupUser={this.props.signupUser}
           logoutUser={this.props.logoutUser} 
            />
         <div>
@@ -89,7 +87,7 @@ class Main extends Component {
             <Route path="/menu/:donationId" component={DonationWithId} />
           
             <Route exact path="/Donate" component={()=> <Donate donations={this.props.donations.donations} />} />
-            <Route path="/admin"  component={() => <Admin  users={this.props.users} />}/>
+            <Route path="/Admin" component={Admin} />
 
             <Redirect to="/home" />
           </Switch>

@@ -86,93 +86,93 @@ import { Loading } from './LoadingComponent';
 
 
 
-function RenderCard({ user}) {
-    return(
-        <div to={`/Admin/${user._id}`} >
-        <Card className="card-main">          
+// function RenderCard({ user}) {
+//     return(
+//         <div to={`/Admin/${user._id}`} >
+//         <Card className="card-main">          
             
             
             
-            <CardTitle className='card-title-home1'>
-                <div>
-                  <h1>hellozzzz</h1>
-                    <span className='card-title-home1' >{user.firstname}</span><br/>
-                    <span className='card-title-home2'>{user.lastname}</span>
+//             <CardTitle className='card-title-home1'>
+//                 <div>
+//                   <h1>hellozzzz</h1>
+//                     <span className='card-title-home1' >{user.firstname}</span><br/>
+//                     <span className='card-title-home2'>{user.lastname}</span>
 
-                </div>
+//                 </div>
                 
-            </CardTitle>
+//             </CardTitle>
             
             
             
         
-        </Card>
-        </div>
+//         </Card>
+//         </div>
 
-    );
-}
+//     );
+// }
 
-const Admin = (props) => {
+// const Admin = (props) => {
 
-    const admin = props.users.users.map((user) => {
-        return (
-            <div key={user._id} className="col-12 col-md-5 m-1">
-                <h1>charbel</h1>
-                <RenderCard user={user} />
-            </div>
-        );
-    });
-    if (props.users.isLoading) {
-        return(
-            <div className="container">
-                <div className="row">
-                    <Loading />
-                </div>
-            </div>
-        );
-    }
-    else if (props.users.errMess) {
-        return(
-            <div className="container">
-                <div className="row">
-                    <h4>{props.users.errMess}</h4>
-                </div>
-            </div>
-        );
-    }
-    else
+//     const admin = props.users.users.map((user) => {
+//         return (
+//             <div key={user._id} className="col-12 col-md-5 m-1">
+//                 <h1>charbel</h1>
+//                 <RenderCard user={user} />
+//             </div>
+//         );
+//     });
+//     if (props.users.isLoading) {
+//         return(
+//             <div className="container">
+//                 <div className="row">
+//                     <Loading />
+//                 </div>
+//             </div>
+//         );
+//     }
+//     else if (props.users.errMess) {
+//         return(
+//             <div className="container">
+//                 <div className="row">
+//                     <h4>{props.users.errMess}</h4>
+//                 </div>
+//             </div>
+//         );
+//     }
+//     else
    
     
-        return (
-            <div className="container-main1">
+//         return (
+//             <div className="container-main1">
           
-            <div className="hero">
+//             <div className="hero">
                 
-              <h1 className="hero-text-h1">You can help people thrive.</h1>
+//               <h1 className="hero-text-h1">You can help people thrive.</h1>
               
              
               
               
                  
-            </div>
+//             </div>
 
-            <div className='container'>
-                <h1 className='about-us-title'>Our Team</h1>
-            </div>
+//             <div className='container'>
+//                 <h1 className='about-us-title'>Our Team</h1>
+//             </div>
     
-            <div className="container">
-                <div className='row card-main'>
-                  <h1>hello</h1>
-                        {admin}
-                        <h1>cava</h1>
-                </div>      
+//             <div className="container">
+//                 <div className='row card-main'>
+//                   <h1>hello</h1>
+//                         {admin}
+//                         <h1>cava</h1>
+//                 </div>      
                       
-            </div>
-            </div>
+//             </div>
+//             </div>
             
-      );
+//       );
          
-}
+// }
 
 
 

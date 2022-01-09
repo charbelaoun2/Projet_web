@@ -29,24 +29,25 @@ export const Auth = (state = {
                 errMess: action.message
             };
             case ActionTypes.SIGNUP_REQUEST:
-                return {...state,
-                    isLoading: true,
-                    isAuthenticated: false,
-                    user: action.creds
-                };
-            case ActionTypes.SIGNUP_SUCCESS:
-                return {...state,
-                    isLoading: false,
-                    isAuthenticated: true,
-                    errMess: '',
-                    token: action.token
-                };
-            case ActionTypes.SIGNUP_FAILURE:
-                return {...state,
-                    isLoading: false,
-                    isAuthenticated: false,
-                    errMess: action.message
-                };
+            return {...state,
+                isLoading: true,
+                isAuthenticated: false,
+                user: action.creds
+            };
+        case ActionTypes.SIGNUP_SUCCESS:
+            return {...state,
+                isLoading: false,
+                isAuthenticated: true,
+                errMess: '',
+                token: action.token
+            };
+        case ActionTypes.SIGNUP_FAILURE:
+            return {...state,
+                isLoading: false,
+                isAuthenticated: false,
+                errMess: action.message
+            };
+        
         case ActionTypes.LOGOUT_REQUEST:
             return {...state,
                 isLoading: true,
