@@ -1,26 +1,12 @@
 import React from "react";
-import "./Admin.css";
-import {
-  PieChart,
-  Pie,
-  Tooltip,
-  BarChart,
-  XAxis,
-  YAxis,
-  Legend,
-  CartesianGrid
-} from "recharts";
 
-import { Bar } from "react-chartjs-2";
 
-import DashBoard from './DashBoard';
-
-import DataTable from './DataTable';
 
 import { Card, CardImg, CardText, CardBody,CardTitle} from 'reactstrap';
 
 import { baseUrl } from '../shared/baseUrl';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
 
 
 
@@ -131,11 +117,30 @@ const Admin = (props) => {
     const admin = props.users.users.map((user) => {
         return (
             <div key={user._id} className="col-12 col-md-5 m-1">
+                <h1>charbel</h1>
                 <RenderCard user={user} />
             </div>
         );
     });
-
+    if (props.users.isLoading) {
+        return(
+            <div className="container">
+                <div className="row">
+                    <Loading />
+                </div>
+            </div>
+        );
+    }
+    else if (props.users.errMess) {
+        return(
+            <div className="container">
+                <div className="row">
+                    <h4>{props.users.errMess}</h4>
+                </div>
+            </div>
+        );
+    }
+    else
    
     
         return (
@@ -145,7 +150,7 @@ const Admin = (props) => {
                 
               <h1 className="hero-text-h1">You can help people thrive.</h1>
               
-              <Link to="/Menu" className="btn btn-primary btn-home">Donations</Link>
+             
               
               
                  

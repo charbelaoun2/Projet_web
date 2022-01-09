@@ -4,13 +4,13 @@ import DonationDetail from "./DonationDetailComponent";
 import AboutUs from "./AboutUsComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
-import Admin from '../Admin/AdminComponent'
+import Admin from './AdminComponent'
 import Home from "./HomeComponent";
 import Donate from "./Donate";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchDonations } from "../redux/ActionCreators";
-import {  postOffre,deleteOffre, fetchoffres, fetchLeaders, loginUser,signupUser, logoutUser} from '../redux/ActionCreators';
+import {  postOffre,deleteOffre, fetchoffres,fetchusers, fetchLeaders, loginUser,signupUser, logoutUser} from '../redux/ActionCreators';
 
 
 const mapStateToProps = (state) => {
@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
     donations: state.donations,
     offres: state.offres,
     leaders: state.leaders,
+    users:state.users,
     auth: state.auth
   };
 };
@@ -27,6 +28,7 @@ const mapDispatchToProps = (dispatch) => ({
   postOffre: (donationId, rating,comment,file) => dispatch( postOffre(donationId, rating,comment,file)),
   deleteOffre: (offreId) => dispatch(deleteOffre(offreId)),
   fetchDonations: () => {dispatch(fetchDonations())},
+  fetchusers: () => {dispatch(fetchusers())},
   
   fetchoffres: () => {dispatch(fetchoffres())},
   fetchLeaders: () => dispatch(fetchLeaders()),
@@ -41,6 +43,7 @@ class Main extends Component {
     this.props.fetchDonations();
     this.props.fetchoffres();
     this.props.fetchLeaders();
+    this.props.fetchusers();
     
   }
 
@@ -86,7 +89,7 @@ class Main extends Component {
             <Route path="/menu/:donationId" component={DonationWithId} />
           
             <Route exact path="/Donate" component={()=> <Donate donations={this.props.donations.donations} />} />
-            <Route path="/Admin" component={Admin} />
+            <Route path="/admin"  component={() => <Admin  users={this.props.users} />}/>
 
             <Redirect to="/home" />
           </Switch>

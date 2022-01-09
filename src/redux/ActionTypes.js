@@ -1,8 +1,11 @@
 export const ADD_OFFRE = 'ADD_OFFRE';
 export const DONATIONS_LOADING = 'DONATIONS_LOADING';
 export const DONATIONS_FAILED = 'DONATIONS_FAILED';
+export const USERS_LOADING = 'USERS_LOADING';
+export const USERS_FAILED = 'USERS_FAILED';
 export const ADD_DONATIONS = 'ADD_DONATIONS';
 export const ADD_OFFRES = 'ADD_OFFRES';
+export const ADD_USERS = 'ADD_USERS';
 export const DELETE_OFFRES='DELETE_OFFRES';
 export const OFFRES_FAILED = 'OFFRES_FAILED';
 export const LEADERS_LOADING = 'LEADERS_LOADING';

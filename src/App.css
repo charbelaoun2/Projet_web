@@ -403,14 +403,15 @@ address {
 .trainer-content{
   text-align: left;
   margin-left: 15px;
-  opacity: 0.7;
+  opacity: 1;
   padding-top: 15px;
 }
 
 .trainer-social{
   text-align: center;
   padding-bottom: 10px;
-  margin-left: 220px;
+ 
+  /* margin-left: 220px; */
 }
 
 .trainer-social .fa{

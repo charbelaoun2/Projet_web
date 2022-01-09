@@ -84,7 +84,8 @@ export const deleteOffre = (offreId) => (dispatch) => {
     .then(response => response.json())
     .then(response => dispatch(deleteOffre(response)))
     .catch(error => { console.log('Delete offres ', error.message);
-        alert('Your offre is deleted'); })
+    alert("Your offre has been deleted!");
+         })
 }
 export const fetchDonations = () => (dispatch) => {
     dispatch(donationsLoading());
@@ -120,6 +121,15 @@ export const donationsFailed = (errmess) => ({
     payload: errmess
 });
 
+export const usersLoading = () => ({
+    type: ActionTypes.USERS_LOADING
+});
+
+export const usersFailed = (errmess) => ({
+    type: ActionTypes.USERS_FAILED,
+    payload: errmess
+});
+
 export const addDonations = (donations) => ({
     type: ActionTypes.ADD_DONATIONS,
     payload: donations
@@ -145,15 +155,44 @@ export const fetchoffres = () => (dispatch) => {
         .then(offres => dispatch(addOffres(offres)))
         .catch(error => dispatch(offresFailed(error.message)));
 }
+export const fetchusers = () => (dispatch) => {
+
+    dispatch(usersLoading());
+    return fetch(baseUrl + 'users')
+        .then(response => {
+            if (response.ok) {
+                return response;
+            }
+            else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        },
+        error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+        })
+        .then(response => response.json())
+        .then(users => dispatch(addUsers(users)))
+        .catch(error => dispatch(usersFailed(error.message)));
+}
 
 export const offresFailed = (errmess) => ({
     type: ActionTypes.OFFRES_FAILED,
     payload: errmess
 });
 
+
+
 export const addOffres = (offres) => ({
     type: ActionTypes.ADD_OFFRES,
     payload: offres
+});
+
+export const addUsers = (users) => ({
+    type: ActionTypes.ADD_USERS,
+    payload: users
 });
 export const deleteOffres = (offres) => ({
     type: ActionTypes.DELETE_OFFRES,

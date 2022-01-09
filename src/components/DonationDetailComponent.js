@@ -59,6 +59,11 @@ var file = null
 // }
 
 
+function handleDonate() {
+    alert("to Get the Donation please contact the donators via his Email  ")
+}
+
+
 function RenderOffres({offres,  postOffre, donationId}) {
    
     if (offres != null)
@@ -82,7 +87,11 @@ function RenderOffres({offres,  postOffre, donationId}) {
                                 <div class="trainer-content">
                                     <p><i class="fa fa-check-circle">  </i> {offre.comment}</p>
                                     <div class="trainer-social">
-                                    <Button className="btn-lg" type="submit" color="primary" onClick={deleteOffre(offre._id)}>
+                                    <Button className="btn-lg" type="submit" color="danger" onClick={deleteOffre(offre._id)}>
+                                          Delete Donation
+                                    </Button>
+                                    <spam>        </spam>
+                                    <Button className="btn-lg" type="submit" color="primary" onClick={handleDonate}>
                                            Get Donation
                                     </Button>
                                 </div>
